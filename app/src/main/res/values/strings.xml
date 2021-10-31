@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Wallpaper HD</string>
+    <string name="save">Save</string>
+    <string name="share">Share</string>
+    <string name="rotate">Rotate</string>
+    <string name="splashText">
+WalliHD</string>
+    <string name="WallpaperText">WallPaperHD</string>
+</resources>

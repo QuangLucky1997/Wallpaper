@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/download"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_download_24"
+        android:title="@string/save"/>
+    <item
+        android:id="@+id/share"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="@string/share"/>
+    <item
+        android:id="@+id/rotate"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_rotate_90_degrees_ccw_24"
+        android:title="@string/rotate"/>
+</menu>
