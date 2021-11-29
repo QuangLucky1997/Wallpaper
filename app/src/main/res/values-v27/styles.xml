@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="BottomSheet" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:navigationBarColor">?android:colorBackground</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">
+            ?android:colorBackground
+        </item>
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/circle_bottom_sheet</item>
+    </style>
+</resources>

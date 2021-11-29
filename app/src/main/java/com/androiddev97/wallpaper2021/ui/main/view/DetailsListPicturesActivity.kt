@@ -63,6 +63,7 @@ class DetailsListPicturesActivity : AppCompatActivity(), CLickListener {
 
     override fun onClickShowFull(infoImage: InfoImage) {
         val intentPhotos = Intent(this, ShowFullActivity::class.java)
+        intentPhotos.putExtra(ShowFullActivity.DATA_IMAGE,infoImage)
         startActivity(intentPhotos)
     }
 
