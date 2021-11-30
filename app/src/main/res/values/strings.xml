@@ -9,7 +9,7 @@ WalliHD</string>
 
 
     <string name="set_home">Set to home screen</string>
-    <string name="set_lock">Set to lock screen</string>
+    <string name="set_lock">Share</string>
     <string name="set_home_lock">Set to home &amp; lock screens</string>
     <string name="download">Download</string>
     <string name="close">Close</string>

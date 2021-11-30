@@ -37,36 +37,12 @@
         <ImageView
             android:id="@+id/img_lock"
             style="@style/imageIcon"
-            android:src="@drawable/ic_baseline_screen_lock_portrait_24" />
+            android:src="@drawable/ic_baseline_share_24" />
 
         <TextView
             style="@style/textviewBottom"
             android:layout_toEndOf="@+id/img_lock"
             android:text="@string/set_lock" />
-
-    </RelativeLayout>
-
-    <View
-        android:layout_marginRight="@dimen/dp_20"
-        android:layout_marginLeft="@dimen/dp_20"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_1"
-        android:background="@color/black" />
-
-    <RelativeLayout
-        android:id="@+id/group_set_home_lock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/img_home_lock"
-            style="@style/imageIcon"
-            android:src="@drawable/ic_baseline_add_to_home_screen_24" />
-
-        <TextView
-            style="@style/textviewBottom"
-            android:layout_toEndOf="@+id/img_home_lock"
-            android:text="@string/set_home_lock" />
 
     </RelativeLayout>
 
