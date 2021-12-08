@@ -2,7 +2,6 @@ package com.androiddev97.wallpaper2021.ui.main.view
 
 import android.app.WallpaperManager
 import android.graphics.Bitmap
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -10,8 +9,8 @@ import androidx.core.graphics.drawable.toBitmap
 import com.androiddev97.wallpaper2021.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import kotlinx.android.synthetic.main.activity_set_lock.*
 import kotlinx.android.synthetic.main.activity_set_wallpaper.*
-import kotlinx.android.synthetic.main.custom_view_imagelist.*
 
 class SetWallpaperActivity : AppCompatActivity() {
     var dataSet: String? = null
@@ -39,5 +38,6 @@ class SetWallpaperActivity : AppCompatActivity() {
             Toast.makeText(this, "Set Wallpaper Success!!", Toast.LENGTH_SHORT).show()
         }
     }
+
 
 }

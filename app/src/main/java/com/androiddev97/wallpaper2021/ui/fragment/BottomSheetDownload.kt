@@ -13,7 +13,9 @@ import kotlinx.android.synthetic.main.custom_download.*
 import android.util.Log
 import com.androiddev97.wallpaper2021.ui.main.view.ProcessDownloadActivity
 import com.androiddev97.wallpaper2021.ui.main.view.ProcessDownloadActivity.Companion.PICTURES
+import com.androiddev97.wallpaper2021.ui.main.view.SetLockActivity
 import com.androiddev97.wallpaper2021.ui.main.view.SetWallpaperActivity
+import com.androiddev97.wallpaper2021.ui.main.view.SetWallpaperActivity.Companion.DATA_IMAGE
 
 class BottomSheetDownload(private val url_image: String) : BottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,20 +42,18 @@ class BottomSheetDownload(private val url_image: String) : BottomSheetDialogFrag
         }
         group_set_download.setOnClickListener {
             val intentProcess = Intent(requireActivity(), ProcessDownloadActivity::class.java)
-            intentProcess.putExtra(ProcessDownloadActivity.PICTURES, url_image)
+            intentProcess.putExtra(PICTURES, url_image)
             startActivity(intentProcess)
         }
         group_set_home.setOnClickListener {
-            val intentProcess = Intent(requireActivity(), SetWallpaperActivity::class.java)
-            intentProcess.putExtra(SetWallpaperActivity.DATA_IMAGE, url_image)
-            startActivity(intentProcess)
+            val intentSetHome = Intent(requireActivity(), SetWallpaperActivity::class.java)
+            intentSetHome.putExtra(DATA_IMAGE, url_image)
+            startActivity(intentSetHome)
         }
         group_set_lock.setOnClickListener {
-            val intentProcess = Intent(requireActivity(), SetWallpaperActivity::class.java)
-            intentProcess.putExtra(SetWallpaperActivity.DATA_IMAGE, url_image)
-            startActivity(intentProcess)
+            val intentSetLock = Intent(requireActivity(), SetLockActivity::class.java)
+            intentSetLock.putExtra(SetLockActivity.DATA_IMAGE_SET_LOCK, url_image)
+            startActivity(intentSetLock)
         }
     }
-
-
 }

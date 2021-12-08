@@ -16,9 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wallpaper2021">
         <activity
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:name=".ui.main.view.SetWallpaperActivity"
+            android:name=".ui.main.view.SetLockActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.main.view.SetWallpaperActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".ui.main.view.ProcessDownloadActivity"
             android:exported="false"
