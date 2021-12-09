@@ -23,7 +23,7 @@ class SetWallpaperActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_set_wallpaper)
         dataSet = intent.getStringExtra(DATA_IMAGE)
-        Glide.with(applicationContext).load(dataSet).diskCacheStrategy(
+        Glide.with(applicationContext).load(dataSet).override(720,1280).diskCacheStrategy(
             DiskCacheStrategy.AUTOMATIC
         ).into(img_full)
         initListener()

@@ -11,10 +11,15 @@
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/activity_process_download.xml" value="0.25" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/activity_set_lock.xml" value="0.36666666666666664" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/activity_set_wallpaper.xml" value="0.22" />
+        <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/activity_wall_paper.xml" value="0.33" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/custom_download.xml" value="0.36666666666666664" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/custom_view_imagelist.xml" value="0.25" />
+        <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/custom_viewpaper.xml" value="0.36666666666666664" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/detail_custom.xml" value="0.36666666666666664" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/list_photos_activity.xml" value="0.36666666666666664" />
+        <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/switch_choice.xml" value="0.25" />
+        <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/menu/navigation_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

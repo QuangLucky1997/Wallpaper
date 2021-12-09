@@ -37,23 +37,26 @@ class BottomSheetDownload(private val url_image: String) : BottomSheetDialogFrag
     }
 
     private fun initListener() {
-        img_close.setOnClickListener {
+        group_close.setOnClickListener {
             this.dismiss()
         }
         group_set_download.setOnClickListener {
             val intentProcess = Intent(requireActivity(), ProcessDownloadActivity::class.java)
             intentProcess.putExtra(PICTURES, url_image)
             startActivity(intentProcess)
+            this.dismiss()
         }
         group_set_home.setOnClickListener {
             val intentSetHome = Intent(requireActivity(), SetWallpaperActivity::class.java)
             intentSetHome.putExtra(DATA_IMAGE, url_image)
             startActivity(intentSetHome)
+            this.dismiss()
         }
         group_set_lock.setOnClickListener {
             val intentSetLock = Intent(requireActivity(), SetLockActivity::class.java)
             intentSetLock.putExtra(SetLockActivity.DATA_IMAGE_SET_LOCK, url_image)
             startActivity(intentSetLock)
+            this.dismiss()
         }
     }
 }
