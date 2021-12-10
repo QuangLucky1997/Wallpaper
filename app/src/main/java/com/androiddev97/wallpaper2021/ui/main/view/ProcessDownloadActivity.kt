@@ -16,7 +16,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.androiddev97.wallpaper2021.R
-import com.androiddev97.wallpaper2021.data.model.InfoImage
 import kotlinx.android.synthetic.main.activity_process_download.*
 import java.io.File
 

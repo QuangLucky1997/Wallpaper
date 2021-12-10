@@ -1,5 +1,6 @@
-package com.androiddev97.wallpaper2021.data.model
+package com.androiddev97.wallpaper2021.data.model.firebase
 
+import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import java.io.Serializable
 
 data class WallPaper(

@@ -15,6 +15,7 @@
     <item
         android:id="@+id/nav_dark_mode"
         android:title="Dark Model"
-        app:actionViewClass="androidx.appcompat.widget.SwitchCompat" />
+        app:actionLayout="@layout/nav_layout_darkmode"/>
+<!--        app:actionViewClass="androidx.appcompat.widget.SwitchCompat" />-->
 
 </menu>

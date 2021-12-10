@@ -26,7 +26,7 @@ class SplashActivity : Activity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, WallPaperActivity::class.java))
             finish()
-        }, 5000)
+        }, 2000)
     }
 
 

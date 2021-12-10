@@ -1,11 +1,13 @@
 package com.androiddev97.wallpaper2021.ui.main.view
 
+
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
+
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.GravityCompat
 
 import com.androiddev97.wallpaper2021.adapter.ViewPaperWallppAdapter
@@ -15,11 +17,20 @@ import kotlinx.android.synthetic.main.custom_viewpaper.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.androiddev97.wallpaper2021.R
+
 import com.androiddev97.wallpaper2021.ui.fragment.CategoryFragment
 import com.androiddev97.wallpaper2021.ui.fragment.RandomPictureFragment
+import java.util.*
+import android.widget.Toast
 
 
-class WallPaperActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
+
+class WallPaperActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+
+//    private var switchDarkMode: SwitchCompat =
+//        nav_view.menu.findItem(R.id.nav_dark_mode).actionView!!.findViewById(R.id.switch_dark_mode)
+
     private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +43,7 @@ class WallPaperActivity : AppCompatActivity(),NavigationView.OnNavigationItemSel
         tabs.setTabTextColors(Color.parseColor("#393838"), Color.parseColor("#009dff"))
         tabs.setupWithViewPager(viewPager)
         setUpNavigationDrawer()
-
+        setDarkModeWithSwitchCompat()
     }
 
 
@@ -60,11 +71,11 @@ class WallPaperActivity : AppCompatActivity(),NavigationView.OnNavigationItemSel
             R.id.nav_random -> {
                 loadFragment(RandomPictureFragment())
             }
-
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
@@ -74,10 +85,22 @@ class WallPaperActivity : AppCompatActivity(),NavigationView.OnNavigationItemSel
     }
 
 
-    fun loadFragment(fragment: Fragment?) {
+    private fun loadFragment(fragment: Fragment?) {
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-        transaction.replace(com.androiddev97.wallpaper2021.R.id.frame, fragment!!)
+        transaction.replace(R.id.frame, fragment!!)
         transaction.commit()
+    }
+
+    private fun setDarkModeWithSwitchCompat() {
+//            switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
+//                if (!isChecked) {
+//                    Toast.makeText(this@WallPaperActivity, "Dark Mode Turn Off", Toast.LENGTH_SHORT)
+//                        .show()
+//                } else {
+//                    Toast.makeText(this@WallPaperActivity, "Dark Mode Turn On", Toast.LENGTH_SHORT)
+//                        .show()
+//                }
+//            }
     }
 
 

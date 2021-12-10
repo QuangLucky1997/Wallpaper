@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
 import com.androiddev97.wallpaper2021.adapter.WallpaperAdapter
-import com.androiddev97.wallpaper2021.data.model.InfoImage
-import com.androiddev97.wallpaper2021.data.model.WallPaper
+import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
+import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
 import com.androiddev97.wallpaper2021.ui.main.view.DetailsListPicturesActivity
 //import com.androiddev97.wallpaper2021.ui.main.view.DetailsListPicturesActivity
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.CategoryViewModel

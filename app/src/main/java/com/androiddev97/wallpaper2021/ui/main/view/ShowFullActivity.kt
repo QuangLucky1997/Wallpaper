@@ -3,14 +3,11 @@ package com.androiddev97.wallpaper2021.ui.main.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.androiddev97.wallpaper2021.R
-import com.androiddev97.wallpaper2021.adapter.ViewPaper2ListImageAdapter
-import com.androiddev97.wallpaper2021.data.model.InfoImage
+import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.ui.fragment.BottomSheetDownload
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.custom_view_imagelist.*
-import kotlinx.android.synthetic.main.detail_custom.view.*
-import kotlinx.android.synthetic.main.list_photos_activity.*
 
 
 class ShowFullActivity : AppCompatActivity() {

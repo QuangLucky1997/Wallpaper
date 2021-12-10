@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
-import com.androiddev97.wallpaper2021.data.model.InfoImage
-import com.androiddev97.wallpaper2021.data.model.WallPaper
+import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.detail_custom.view.*

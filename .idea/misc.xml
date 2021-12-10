@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/drawable/bg_dark.xml" value="0.29444444444444445" />
+        <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/drawable/bg_defaults.xml" value="0.29444444444444445" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/drawable/circle_bottom_sheet.xml" value="0.32037037037037036" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/drawable/circle_custom.xml" value="0.262037037037037" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/drawable/ic_baseline_arrow_downward_24.xml" value="0.262037037037037" />
@@ -14,10 +16,12 @@
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/activity_wall_paper.xml" value="0.33" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/custom_download.xml" value="0.36666666666666664" />
+        <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/custom_random_pictures.xml" value="0.22" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/custom_view_imagelist.xml" value="0.25" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/custom_viewpaper.xml" value="0.36666666666666664" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/detail_custom.xml" value="0.36666666666666664" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/list_photos_activity.xml" value="0.36666666666666664" />
+        <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/nav_layout_darkmode.xml" value="0.36666666666666664" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/layout/switch_choice.xml" value="0.25" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/menu/navigation_menu.xml" value="0.36666666666666664" />
       </map>

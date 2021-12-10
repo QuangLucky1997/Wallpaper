@@ -1,4 +1,4 @@
-package com.androiddev97.wallpaper2021.data.model
+package com.androiddev97.wallpaper2021.data.model.firebase
 
 import java.io.Serializable
 
