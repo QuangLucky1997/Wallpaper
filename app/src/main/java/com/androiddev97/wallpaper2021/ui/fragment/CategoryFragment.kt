@@ -1,12 +1,19 @@
 package com.androiddev97.wallpaper2021.ui.fragment
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.androiddev97.wallpaper2021.R
@@ -14,18 +21,20 @@ import com.androiddev97.wallpaper2021.`interface`.CLickListener
 import com.androiddev97.wallpaper2021.adapter.WallpaperAdapter
 import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
+import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.androiddev97.wallpaper2021.ui.main.view.DetailsListPicturesActivity
 //import com.androiddev97.wallpaper2021.ui.main.view.DetailsListPicturesActivity
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.CategoryViewModel
+import com.androiddev97.wallpaper2021.utils.ConnectivityLiveData
 import kotlinx.android.synthetic.main.category_fragment.*
 
 
 class CategoryFragment : Fragment(), CLickListener {
-        private lateinit var adapterWallPaper: WallpaperAdapter
+    private lateinit var adapterWallPaper: WallpaperAdapter
+    private lateinit var connectivityLiveData: ConnectivityLiveData
     private val viewModelWallPaper by lazy {
         ViewModelProviders.of(requireActivity()).get(CategoryViewModel::class.java)
     }
-
 
 
     override fun onCreateView(
@@ -39,13 +48,13 @@ class CategoryFragment : Fragment(), CLickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapterWallPaper = WallpaperAdapter(this, requireActivity())
-        recycleViewWallpaper.setHasFixedSize(true)
-        recycleViewWallpaper.layoutManager =
-            GridLayoutManager(activity, 2)
-        recycleViewWallpaper.adapter=adapterWallPaper
-        observeData()
-
+        connectivityLiveData = ConnectivityLiveData(requireActivity().application)
+        connectivityLiveData.observe(requireActivity(), { isAvailable ->
+            when (isAvailable) {
+                true -> setData()
+                false -> showText()
+            }
+        })
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -57,6 +66,19 @@ class CategoryFragment : Fragment(), CLickListener {
         })
     }
 
+    private fun setData() {
+        adapterWallPaper = WallpaperAdapter(this, requireActivity())
+        recycleViewWallpaper.setHasFixedSize(true)
+        recycleViewWallpaper.layoutManager =
+            GridLayoutManager(activity, 2)
+        recycleViewWallpaper.adapter = adapterWallPaper
+        observeData()
+    }
+
+    private fun showText() {
+        lottiesShow.visibility = View.VISIBLE
+    }
+
 
     override fun onClick(wallPaper: WallPaper) {
         val intentData = Intent(activity, DetailsListPicturesActivity::class.java)
@@ -65,7 +87,9 @@ class CategoryFragment : Fragment(), CLickListener {
     }
 
     override fun onClickShowFull(infoImage: InfoImage) {
-        TODO("Not yet implemented")
+    }
+
+    override fun onClickRandom(reponseUnplash: ReponseUnplash) {
     }
 
 

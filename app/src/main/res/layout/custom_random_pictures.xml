@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/img_random"
-        android:scaleType="center"
-        android:src="@mipmap/ic_launcher"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:src="@mipmap/ic_launcher" />
 
 </RelativeLayout>

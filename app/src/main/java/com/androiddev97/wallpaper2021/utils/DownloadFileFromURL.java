@@ -5,9 +5,6 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.androiddev97.wallpaper2021.ui.fragment.BottomSheetDownload;
-import com.androiddev97.wallpaper2021.ui.main.view.ShowFullActivity;
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,12 +16,10 @@ import java.net.URLConnection;
 class DownloadFileFromURL extends AsyncTask<String, Integer, String> {
     private String nameFile;
     private TextView textProgress;
-    private BottomSheetDownload bottomSheetDownload;
 
-    public DownloadFileFromURL(BottomSheetDownload bottomSheetDownload, String nameFile, TextView textProgress) {
+    public DownloadFileFromURL(String nameFile, TextView textProgress) {
         this.nameFile = nameFile;
         this.textProgress = textProgress;
-        this.bottomSheetDownload = bottomSheetDownload;
     }
 
     protected void onPreExecute() {
@@ -96,8 +91,6 @@ class DownloadFileFromURL extends AsyncTask<String, Integer, String> {
 
     @Override
     protected void onPostExecute(String file_url) {
-        if (bottomSheetDownload != null) {
-           // bottomSheetDownload.doneExportSticker();
-        }
+
     }
 }

@@ -26,9 +26,9 @@ class ViewPaper2ListImageAdapter(var context: Context) :
 
     override fun onBindViewHolder(holder: ListImageHolder, position: Int) {
         val listPhotos = arrayListImage[position]
-        Glide.with(context).load(listPhotos).diskCacheStrategy(
-            DiskCacheStrategy.AUTOMATIC
-        ).into(holder.itemView.image_list_click);
+//        Glide.with(context).load(listPhotos).diskCacheStrategy(
+//            DiskCacheStrategy.AUTOMATIC
+//        ).into(holder.itemView.image_list_click);
     }
 
     override fun getItemCount(): Int {

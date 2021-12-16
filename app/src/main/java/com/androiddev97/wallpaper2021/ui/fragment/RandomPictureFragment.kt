@@ -1,38 +1,45 @@
 package com.androiddev97.wallpaper2021.ui.fragment
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import com.androiddev97.wallpaper2021.R
+import com.androiddev97.wallpaper2021.`interface`.CLickListener
+import com.androiddev97.wallpaper2021.adapter.AdapterRandomPictures
 import com.androiddev97.wallpaper2021.data.api.ApiHelper
 import com.androiddev97.wallpaper2021.data.api.RetrofitBuilder
+import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
+import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
-import com.androiddev97.wallpaper2021.data.repository.UnplashRepository
 import com.androiddev97.wallpaper2021.ui.base.UnplashViewModelFactory
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.UnplashViewModel
+import com.androiddev97.wallpaper2021.utils.Resources
 import com.androiddev97.wallpaper2021.utils.Status
+import kotlinx.android.synthetic.main.random_fragment.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class RandomPictureFragment : Fragment() {
+class RandomPictureFragment : Fragment(), CLickListener {
     private lateinit var randomPicturesViewModel: UnplashViewModel
+    private lateinit var adapterRandomPictures: AdapterRandomPictures
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.random_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpRecyclerView()
         setUpViewModel()
         setUpObserver()
     }
@@ -43,8 +50,8 @@ class RandomPictureFragment : Fragment() {
                 getDataRandom(data)
             })
     }
-    private fun setUpViewModel()
-    {
+
+    private fun setUpViewModel() {
         val viewModelWeatherFactory =
             UnplashViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
         randomPicturesViewModel =
@@ -54,7 +61,7 @@ class RandomPictureFragment : Fragment() {
             ).get(UnplashViewModel::class.java)
     }
 
-    private fun getDataRandom(it: com.androiddev97.wallpaper2021.utils.Resources<ReponseUnplash>) {
+    private fun getDataRandom(it: Resources<List<ReponseUnplash>>) {
         it.let {
             when (it.status) {
                 Status.SUCCESS -> {
@@ -62,12 +69,11 @@ class RandomPictureFragment : Fragment() {
                     CoroutineScope(Dispatchers.Main).launch {
                         withContext(Dispatchers.Main)
                         {
-
+                            adapterRandomPictures.setDataListImage(data as MutableList<ReponseUnplash>)
                         }
                     }
                 }
                 Status.LOADING -> {
-                   // progressBar.visibility = View.GONE
                     Log.e("Loading", "${it.message}")
                 }
                 Status.ERROR -> {
@@ -76,8 +82,22 @@ class RandomPictureFragment : Fragment() {
             }
         }
     }
-    private fun setDataAdapter(reponseUnplash: ReponseUnplash)
-    {
+
+    private fun setUpRecyclerView() {
+        adapterRandomPictures = AdapterRandomPictures(requireActivity(), this, arrayListOf())
+        recycleViewRandom.setHasFixedSize(true)
+        recycleViewRandom.layoutManager=GridLayoutManager(requireActivity(),2)
+        recycleViewRandom.adapter = adapterRandomPictures
+    }
+
+
+    override fun onClick(wallPaper: WallPaper) {
+    }
+
+    override fun onClickShowFull(infoImage: InfoImage) {
+    }
+
+    override fun onClickRandom(reponseUnplash: ReponseUnplash) {
 
     }
 }
