@@ -9,5 +9,4 @@ data class WallPaper(
     val id:String="",
     val imgCategory:String=""
 
-) :
-    Serializable
+) : Serializable

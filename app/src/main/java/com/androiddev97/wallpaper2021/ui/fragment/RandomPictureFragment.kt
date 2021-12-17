@@ -1,5 +1,6 @@
 package com.androiddev97.wallpaper2021.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
 import com.androiddev97.wallpaper2021.adapter.AdapterRandomPictures
@@ -17,7 +18,9 @@ import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.androiddev97.wallpaper2021.ui.base.UnplashViewModelFactory
+import com.androiddev97.wallpaper2021.ui.main.view.ShowFullActivity
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.UnplashViewModel
+import com.androiddev97.wallpaper2021.utils.ConnectivityLiveData
 import com.androiddev97.wallpaper2021.utils.Resources
 import com.androiddev97.wallpaper2021.utils.Status
 import kotlinx.android.synthetic.main.random_fragment.*
@@ -29,6 +32,7 @@ import kotlinx.coroutines.withContext
 class RandomPictureFragment : Fragment(), CLickListener {
     private lateinit var randomPicturesViewModel: UnplashViewModel
     private lateinit var adapterRandomPictures: AdapterRandomPictures
+    private lateinit var connectivityLiveData: ConnectivityLiveData
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,13 +43,25 @@ class RandomPictureFragment : Fragment(), CLickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpRecyclerView()
-        setUpViewModel()
-        setUpObserver()
+        connectivityLiveData = ConnectivityLiveData(requireActivity().application)
+        connectivityLiveData.observe(requireActivity(), { isAvailable ->
+            when (isAvailable) {
+                true -> {
+                    setUpRecyclerView()
+                    setUpViewModel()
+                    setUpObserver()
+                }
+            }
+        })
+
     }
 
+//    private fun showText() {
+//        lottiesShow_2.visibility = View.VISIBLE
+//    }
+
     private fun setUpObserver() {
-        randomPicturesViewModel.getPictures("U7EEpMH-94ZXAG1GHvr83krUhZm2Ljgeprm3tTM-jA0", 1, 200)
+        randomPicturesViewModel.getPictures("U7EEpMH-94ZXAG1GHvr83krUhZm2Ljgeprm3tTM-jA0", 1, 80)
             .observe(requireActivity(), { data ->
                 getDataRandom(data)
             })
@@ -86,7 +102,7 @@ class RandomPictureFragment : Fragment(), CLickListener {
     private fun setUpRecyclerView() {
         adapterRandomPictures = AdapterRandomPictures(requireActivity(), this, arrayListOf())
         recycleViewRandom.setHasFixedSize(true)
-        recycleViewRandom.layoutManager=GridLayoutManager(requireActivity(),2)
+        recycleViewRandom.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recycleViewRandom.adapter = adapterRandomPictures
     }
 
@@ -98,6 +114,8 @@ class RandomPictureFragment : Fragment(), CLickListener {
     }
 
     override fun onClickRandom(reponseUnplash: ReponseUnplash) {
-
+            val intentRandom= Intent(activity, ShowFullActivity::class.java)
+            intentRandom.putExtra(ShowFullActivity.DATA_IMAGE,reponseUnplash.urls.regular)
+            startActivity(intentRandom)
     }
 }

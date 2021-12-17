@@ -44,8 +44,8 @@ class AdapterRandomPictures(
     @SuppressLint("CheckResult")
     override fun onBindViewHolder(holder: RandomHolder, position: Int) {
         val imageRandomList = itemPicturesRandomList[position]
-        Glide.with(context).load(imageRandomList.url).centerCrop()
-            .override(500, 500).diskCacheStrategy(
+        Glide.with(context).load(imageRandomList.urls.small).centerCrop()
+            .override(400, 400).diskCacheStrategy(
                 DiskCacheStrategy.AUTOMATIC
             ).into(holder.itemView.img_random)
         holder.itemView.img_random.setOnClickListener {

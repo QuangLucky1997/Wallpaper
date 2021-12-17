@@ -64,11 +64,12 @@ class DetailsListPicturesActivity : AppCompatActivity(), CLickListener {
 
     override fun onClickShowFull(infoImage: InfoImage) {
         val intentPhotos = Intent(this, ShowFullActivity::class.java)
-        intentPhotos.putExtra(ShowFullActivity.DATA_IMAGE,infoImage)
+        intentPhotos.putExtra(ShowFullActivity.DATA_IMAGE,infoImage.url)
         startActivity(intentPhotos)
     }
 
     override fun onClickRandom(reponseUnplash: ReponseUnplash) {
+
     }
 
 

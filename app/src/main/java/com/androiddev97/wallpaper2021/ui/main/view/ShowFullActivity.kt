@@ -16,11 +16,13 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.custom_view_imagelist.*
 import kotlinx.android.synthetic.main.custom_view_imagelist.card_view_setWall
 import android.provider.MediaStore
+import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import java.io.ByteArrayOutputStream
 
 
 class ShowFullActivity : AppCompatActivity() {
-    private var pictureID: InfoImage? = null
+
+    private lateinit var url : String
 
     companion object {
         const val DATA_IMAGE = "picture"
@@ -34,8 +36,8 @@ class ShowFullActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        pictureID = intent.getSerializableExtra(DATA_IMAGE) as InfoImage
-        Glide.with(applicationContext).load(pictureID!!.url)
+        url = intent.getStringExtra(DATA_IMAGE).toString()
+        Glide.with(applicationContext).load(url)
             .override(600, 800).diskCacheStrategy(
                 DiskCacheStrategy.AUTOMATIC
             ).into(img_Walpaper)
@@ -54,7 +56,7 @@ class ShowFullActivity : AppCompatActivity() {
         }
         group_download.setOnClickListener {
             val intentProcess = Intent(this, ProcessDownloadActivity::class.java)
-            intentProcess.putExtra(PICTURES, pictureID!!.url)
+            intentProcess.putExtra(PICTURES, url)
             startActivity(intentProcess)
         }
         group_share.setOnClickListener {
@@ -62,15 +64,18 @@ class ShowFullActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_SEND).setType("image/*")
             val bytes = ByteArrayOutputStream()
             bitMap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-            val path = MediaStore.Images.Media.insertImage(this.contentResolver, bitMap, "WallpaperHD", null)
+            val path = MediaStore.Images.Media.insertImage(
+                this.contentResolver,
+                bitMap,
+                "WallpaperHD",
+                null
+            )
             val uri = Uri.parse(path)
             intent.putExtra(Intent.EXTRA_STREAM, uri)
             startActivity(intent)
         }
 
     }
-
-
 
 
 }

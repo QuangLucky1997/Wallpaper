@@ -1,5 +1,6 @@
 package com.androiddev97.wallpaper2021.ui.main.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.androiddev97.wallpaper2021.data.repository.UnplashRepository
@@ -11,8 +12,11 @@ class UnplashViewModel(private val unplashRepository: UnplashRepository) : ViewM
     {
         emit(Resources.loading(data = null))
         try {
+            Log.d("Main123456789", "clint_id:$clint_id")
             emit(Resources.success(data = unplashRepository.getPictures(clint_id, page, perPage)))
         } catch (exception: Exception) {
+            Log.d("Main12345678", exception.message.toString())
+
             emit(Resources.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
     }
