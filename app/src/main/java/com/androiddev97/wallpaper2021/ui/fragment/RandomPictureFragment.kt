@@ -101,8 +101,14 @@ class RandomPictureFragment : Fragment(), CLickListener {
 
     private fun setUpRecyclerView() {
         adapterRandomPictures = AdapterRandomPictures(requireActivity(), this, arrayListOf())
+        val layoutManager =  StaggeredGridLayoutManager(
+            2,
+            StaggeredGridLayoutManager.VERTICAL
+        )
+        layoutManager.gapStrategy=StaggeredGridLayoutManager.GAP_HANDLING_NONE
+        recycleViewRandom.layoutManager = layoutManager
+
         recycleViewRandom.setHasFixedSize(true)
-        recycleViewRandom.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recycleViewRandom.adapter = adapterRandomPictures
     }
 
