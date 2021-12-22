@@ -7,7 +7,7 @@ import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
 import com.google.firebase.database.*
 
-class WallPaperRepository {
+class FirebaseRepository {
     fun getCategory(): LiveData<MutableList<WallPaper>> {
         val mutableData = MutableLiveData<MutableList<WallPaper>>()
         val wallPaperList = mutableListOf<WallPaper>()

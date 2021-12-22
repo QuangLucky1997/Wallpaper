@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
-import com.androiddev97.wallpaper2021.data.repository.WallPaperRepository
+import com.androiddev97.wallpaper2021.data.repository.FirebaseRepository
 
 class CategoryViewModel : ViewModel() {
-    private val wallPaperRepository = WallPaperRepository()
+    private val wallPaperRepository = FirebaseRepository()
     fun fetchDataFromFireBase(): LiveData<MutableList<WallPaper>> {
         val mutableData = MutableLiveData<MutableList<WallPaper>>()
         wallPaperRepository.getCategory().observeForever { wallList ->

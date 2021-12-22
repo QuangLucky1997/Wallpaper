@@ -6,16 +6,18 @@
 
     <item
         android:id="@+id/nav_Collection"
-        android:title="Collection" />
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home" />
 
     <item
-        android:id="@+id/nav_random"
-        android:title="Random Pictures" />
+        android:id="@+id/nav_share"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="Share App" />
 
     <item
         android:id="@+id/nav_dark_mode"
-        android:title="Dark Model"
+        android:title="Dark Theme"
+        android:icon="@drawable/ic_baseline_dark_mode_24"
         app:actionLayout="@layout/nav_layout_darkmode"/>
-<!--        app:actionViewClass="androidx.appcompat.widget.SwitchCompat" />-->
 
 </menu>

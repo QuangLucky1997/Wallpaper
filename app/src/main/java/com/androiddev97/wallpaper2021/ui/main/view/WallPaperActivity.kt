@@ -4,6 +4,7 @@ package com.androiddev97.wallpaper2021.ui.main.view
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -11,31 +12,29 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.GravityCompat
 
 import com.androiddev97.wallpaper2021.adapter.ViewPaperWallppAdapter
-import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_wall_paper.*
 import kotlinx.android.synthetic.main.custom_viewpaper.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.androiddev97.wallpaper2021.R
-
-import com.androiddev97.wallpaper2021.ui.fragment.CategoryFragment
-import com.androiddev97.wallpaper2021.ui.fragment.RandomPictureFragment
 import java.util.*
 import android.widget.Toast
+import android.content.Intent
+import androidx.appcompat.app.AppCompatDelegate
+import com.androiddev97.wallpaper2021.BuildConfig
+import java.lang.Exception
+import androidx.annotation.StyleRes
 
 
+class WallPaperActivity : AppCompatActivity() {
 
-class WallPaperActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
-
-//    private var switchDarkMode: SwitchCompat =
-//        nav_view.menu.findItem(R.id.nav_dark_mode).actionView!!.findViewById(R.id.switch_dark_mode)
 
     private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wall_paper)
+
         setSupportActionBar(toolBar)
         val fragmentAdapter = ViewPaperWallppAdapter(supportFragmentManager)
         viewPager.adapter = fragmentAdapter
@@ -43,7 +42,52 @@ class WallPaperActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         tabs.setTabTextColors(Color.parseColor("#393838"), Color.parseColor("#009dff"))
         tabs.setupWithViewPager(viewPager)
         setUpNavigationDrawer()
-        setDarkModeWithSwitchCompat()
+
+        val drawerSwitch = nav_view.menu.findItem(R.id.nav_dark_mode).actionView as SwitchCompat
+        drawerSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (!isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+        }
+        iconSearch.setOnClickListener {
+            val intentSearch = Intent(this, SearchActivity::class.java)
+            startActivity(intentSearch)
+        }
+
+        nav_view.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_Collection -> {
+                    Toast.makeText(this, "Have a nice day for you", Toast.LENGTH_SHORT).show()
+
+                }
+                R.id.nav_share -> {
+                    shareApp()
+                }
+                R.id.nav_dark_mode -> {
+
+                }
+            }
+            drawer_layout.closeDrawer(GravityCompat.START)
+            return@setNavigationItemSelectedListener true
+        }
+    }
+
+    private fun shareApp() {
+        try {
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.type = "text/plain"
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "WallpaperHD")
+            var shareMessage = "\nShare App your friends\n\n"
+            shareMessage =
+                """
+              ${shareMessage}https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}
+              """.trimIndent()
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+            startActivity(Intent.createChooser(shareIntent, "choose one"))
+        } catch (e: Exception) {
+        }
     }
 
 
@@ -63,18 +107,6 @@ class WallPaperActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_Collection -> {
-                loadFragment(CategoryFragment())
-            }
-            R.id.nav_random -> {
-                loadFragment(RandomPictureFragment())
-            }
-        }
-        drawer_layout.closeDrawer(GravityCompat.START)
-        return true
-    }
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -91,16 +123,9 @@ class WallPaperActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         transaction.commit()
     }
 
-    private fun setDarkModeWithSwitchCompat() {
-//            switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
-//                if (!isChecked) {
-//                    Toast.makeText(this@WallPaperActivity, "Dark Mode Turn Off", Toast.LENGTH_SHORT)
-//                        .show()
-//                } else {
-//                    Toast.makeText(this@WallPaperActivity, "Dark Mode Turn On", Toast.LENGTH_SHORT)
-//                        .show()
-//                }
-//            }
+
+    private fun setAppTheme(@StyleRes style: Int) {
+        setTheme(style)
     }
 
 

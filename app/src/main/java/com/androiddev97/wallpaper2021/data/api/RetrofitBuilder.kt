@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
 
-    private const val BASE_URL ="https://api.unsplash.com"
+    private const val BASE_URL ="https://api.pexels.com"
 
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()

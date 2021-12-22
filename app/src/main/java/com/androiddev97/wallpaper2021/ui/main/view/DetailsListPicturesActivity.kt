@@ -11,6 +11,7 @@ import com.androiddev97.wallpaper2021.`interface`.CLickListener
 import com.androiddev97.wallpaper2021.adapter.DetailImageAdapter
 import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
+import com.androiddev97.wallpaper2021.data.model.pexel.Photo
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.CategoryViewModel
 import kotlinx.android.synthetic.main.detail_activity.*
@@ -68,9 +69,11 @@ class DetailsListPicturesActivity : AppCompatActivity(), CLickListener {
         startActivity(intentPhotos)
     }
 
-    override fun onClickRandom(reponseUnplash: ReponseUnplash) {
-
+    override fun onClickRandom(photo: Photo) {
+        TODO("Not yet implemented")
     }
+
+
 
 
 }

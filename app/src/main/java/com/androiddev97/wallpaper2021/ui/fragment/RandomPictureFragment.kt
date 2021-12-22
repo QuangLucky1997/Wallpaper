@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -16,6 +17,8 @@ import com.androiddev97.wallpaper2021.data.api.ApiHelper
 import com.androiddev97.wallpaper2021.data.api.RetrofitBuilder
 import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
+import com.androiddev97.wallpaper2021.data.model.pexel.PexelReponse
+import com.androiddev97.wallpaper2021.data.model.pexel.Photo
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.androiddev97.wallpaper2021.ui.base.UnplashViewModelFactory
 import com.androiddev97.wallpaper2021.ui.main.view.ShowFullActivity
@@ -23,6 +26,7 @@ import com.androiddev97.wallpaper2021.ui.main.viewmodel.UnplashViewModel
 import com.androiddev97.wallpaper2021.utils.ConnectivityLiveData
 import com.androiddev97.wallpaper2021.utils.Resources
 import com.androiddev97.wallpaper2021.utils.Status
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.random_fragment.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -50,18 +54,17 @@ class RandomPictureFragment : Fragment(), CLickListener {
                     setUpRecyclerView()
                     setUpViewModel()
                     setUpObserver()
+
                 }
             }
         })
 
+
     }
 
-//    private fun showText() {
-//        lottiesShow_2.visibility = View.VISIBLE
-//    }
-
     private fun setUpObserver() {
-        randomPicturesViewModel.getPictures("U7EEpMH-94ZXAG1GHvr83krUhZm2Ljgeprm3tTM-jA0", 1, 80)
+        Log.d("Main123", "abc1234")
+        randomPicturesViewModel.getPicturesPexel(1, 80)
             .observe(requireActivity(), { data ->
                 getDataRandom(data)
             })
@@ -77,7 +80,7 @@ class RandomPictureFragment : Fragment(), CLickListener {
             ).get(UnplashViewModel::class.java)
     }
 
-    private fun getDataRandom(it: Resources<List<ReponseUnplash>>) {
+    private fun getDataRandom(it: Resources<PexelReponse>) {
         it.let {
             when (it.status) {
                 Status.SUCCESS -> {
@@ -85,7 +88,8 @@ class RandomPictureFragment : Fragment(), CLickListener {
                     CoroutineScope(Dispatchers.Main).launch {
                         withContext(Dispatchers.Main)
                         {
-                            adapterRandomPictures.setDataListImage(data as MutableList<ReponseUnplash>)
+                            val listImagePexel = data!!.photos
+                            adapterRandomPictures.setDataListImage(listImagePexel)
                         }
                     }
                 }
@@ -101,13 +105,12 @@ class RandomPictureFragment : Fragment(), CLickListener {
 
     private fun setUpRecyclerView() {
         adapterRandomPictures = AdapterRandomPictures(requireActivity(), this, arrayListOf())
-        val layoutManager =  StaggeredGridLayoutManager(
+        val layoutManager = StaggeredGridLayoutManager(
             2,
             StaggeredGridLayoutManager.VERTICAL
         )
-        layoutManager.gapStrategy=StaggeredGridLayoutManager.GAP_HANDLING_NONE
+        layoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
         recycleViewRandom.layoutManager = layoutManager
-
         recycleViewRandom.setHasFixedSize(true)
         recycleViewRandom.adapter = adapterRandomPictures
     }
@@ -119,9 +122,9 @@ class RandomPictureFragment : Fragment(), CLickListener {
     override fun onClickShowFull(infoImage: InfoImage) {
     }
 
-    override fun onClickRandom(reponseUnplash: ReponseUnplash) {
-            val intentRandom= Intent(activity, ShowFullActivity::class.java)
-            intentRandom.putExtra(ShowFullActivity.DATA_IMAGE,reponseUnplash.urls.regular)
-            startActivity(intentRandom)
+    override fun onClickRandom(photo: Photo) {
+        val intentRandom = Intent(activity, ShowFullActivity::class.java)
+        intentRandom.putExtra(ShowFullActivity.DATA_IMAGE, photo.src.portrait)
+        startActivity(intentRandom)
     }
 }

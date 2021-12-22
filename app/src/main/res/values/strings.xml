@@ -15,10 +15,9 @@ WalliHD</string>
     <string name="close">Close</string>
 
 
-
-
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="set_wallpaper">Set Wallpaper</string>
+    <string name="search">Search</string>
 
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.androiddev97.wallpaper2021">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,18 +11,24 @@
 
     <application
         android:allowBackup="true"
+        android:forceDarkAllowed="true"
         android:icon="@drawable/pictures"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:requestLegacyExternalStorage="true"
-        android:theme="@style/Theme.Wallpaper2021">
+        android:theme="@style/Theme.Wallpaper2021"
+        tools:targetApi="q">
+        <activity
+            android:name=".ui.main.view.SearchActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.main.view.ProcessDownloadActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".ui.main.view.SplashActivity"
+            android:configChanges="uiMode"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -15,8 +15,7 @@
             android:id="@+id/ImageShort"
             android:layout_width="@dimen/dp_300"
             android:layout_height="@dimen/dp_300"
-            android:scaleType="fitXY"
-            android:src="@drawable/splash" />
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/TextViewDescription"

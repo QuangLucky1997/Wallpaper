@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
 import com.androiddev97.wallpaper2021.adapter.WallpaperAdapter
 import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
+import com.androiddev97.wallpaper2021.data.model.pexel.Photo
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.androiddev97.wallpaper2021.ui.main.view.DetailsListPicturesActivity
 //import com.androiddev97.wallpaper2021.ui.main.view.DetailsListPicturesActivity
@@ -82,8 +84,11 @@ class CategoryFragment : Fragment(), CLickListener {
     override fun onClickShowFull(infoImage: InfoImage) {
     }
 
-    override fun onClickRandom(reponseUnplash: ReponseUnplash) {
+    override fun onClickRandom(photo: Photo) {
+        TODO("Not yet implemented")
     }
+
+
 
 
 }

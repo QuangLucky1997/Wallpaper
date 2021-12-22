@@ -16,6 +16,7 @@
 
     <FrameLayout
         android:id="@+id/frame"
+        android:layout_marginBottom="@dimen/dp_20"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <com.google.android.material.navigation.NavigationView
