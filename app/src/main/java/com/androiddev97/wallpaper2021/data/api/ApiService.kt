@@ -27,9 +27,9 @@ interface ApiService {
 
 
     @Headers("Authorization: 563492ad6f917000010000016a8ac38d3ba743cbbaa2d91f024fd226")
-    @GET("/v1/curated")
+    @GET("/v1/search")
     suspend fun searchPictures(
-        @Query("page") page: Int,
+        @Query("query") query: String,
         @Query("per_page") perPage: Int
     ): PexelReponse
 

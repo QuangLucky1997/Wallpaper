@@ -18,6 +18,11 @@ import kotlinx.android.synthetic.main.custom_view_imagelist.card_view_setWall
 import android.provider.MediaStore
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import java.io.ByteArrayOutputStream
+import android.view.WindowManager
+
+import android.os.Build
+import android.view.View
+import android.view.Window
 
 
 class ShowFullActivity : AppCompatActivity() {
@@ -33,6 +38,17 @@ class ShowFullActivity : AppCompatActivity() {
         setContentView(R.layout.custom_view_imagelist)
         initData()
         initListener()
+//        val w: Window = window // in Activity's onCreate() for instance
+//        w.setFlags(
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//        )
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                or View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                or View.SYSTEM_UI_FLAG_IMMERSIVE)
     }
 
     private fun initData() {

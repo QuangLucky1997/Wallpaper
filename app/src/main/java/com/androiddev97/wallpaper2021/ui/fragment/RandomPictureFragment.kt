@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -20,13 +19,12 @@ import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
 import com.androiddev97.wallpaper2021.data.model.pexel.PexelReponse
 import com.androiddev97.wallpaper2021.data.model.pexel.Photo
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
-import com.androiddev97.wallpaper2021.ui.base.UnplashViewModelFactory
+import com.androiddev97.wallpaper2021.ui.base.ServerViewModelFactory
 import com.androiddev97.wallpaper2021.ui.main.view.ShowFullActivity
-import com.androiddev97.wallpaper2021.ui.main.viewmodel.UnplashViewModel
+import com.androiddev97.wallpaper2021.ui.main.viewmodel.ServerViewModel
 import com.androiddev97.wallpaper2021.utils.ConnectivityLiveData
 import com.androiddev97.wallpaper2021.utils.Resources
 import com.androiddev97.wallpaper2021.utils.Status
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.random_fragment.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +32,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class RandomPictureFragment : Fragment(), CLickListener {
-    private lateinit var randomPicturesViewModel: UnplashViewModel
+    private lateinit var randomPicturesViewModel: ServerViewModel
     private lateinit var adapterRandomPictures: AdapterRandomPictures
     private lateinit var connectivityLiveData: ConnectivityLiveData
     override fun onCreateView(
@@ -72,12 +70,12 @@ class RandomPictureFragment : Fragment(), CLickListener {
 
     private fun setUpViewModel() {
         val viewModelWeatherFactory =
-            UnplashViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
+            ServerViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
         randomPicturesViewModel =
             ViewModelProvider(
                 requireActivity(),
                 viewModelWeatherFactory
-            ).get(UnplashViewModel::class.java)
+            ).get(ServerViewModel::class.java)
     }
 
     private fun getDataRandom(it: Resources<PexelReponse>) {
@@ -127,4 +125,6 @@ class RandomPictureFragment : Fragment(), CLickListener {
         intentRandom.putExtra(ShowFullActivity.DATA_IMAGE, photo.src.portrait)
         startActivity(intentRandom)
     }
+
+
 }

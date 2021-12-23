@@ -20,6 +20,7 @@
         android:theme="@style/Theme.Wallpaper2021"
         tools:targetApi="q">
         <activity
+            android:theme="@style/Theme.Design.NoActionBar"
             android:name=".ui.main.view.SearchActivity"
             android:exported="false" />
         <activity
@@ -44,7 +45,8 @@
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".ui.main.view.ShowFullActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
+            android:theme="@style/Theme.Design.Light.NoActionBar"
+            />
     </application>
 
 </manifest>

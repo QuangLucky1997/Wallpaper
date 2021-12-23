@@ -10,6 +10,6 @@ interface CLickListener {
     fun onClick(wallPaper: WallPaper)
     fun onClickShowFull(infoImage: InfoImage)
     fun onClickRandom(photo: Photo)
-    fun onClickSearch(reponseUnplash: ReponseUnplash)
+
 
 }

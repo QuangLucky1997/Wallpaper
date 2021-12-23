@@ -75,5 +75,4 @@ class DetailsListPicturesActivity : AppCompatActivity(), CLickListener {
 
 
 
-
 }
