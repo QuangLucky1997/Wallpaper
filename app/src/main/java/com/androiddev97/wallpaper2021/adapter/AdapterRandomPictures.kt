@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
@@ -31,11 +32,14 @@ class AdapterRandomPictures(
         )
     }
 
+
+
     @SuppressLint("NotifyDataSetChanged")
     fun setDataListImage(list: List<Photo>) {
         this.itemPicturesRandomList = list
         notifyDataSetChanged()
     }
+
 
     override fun getItemCount(): Int {
         return itemPicturesRandomList.size
@@ -50,6 +54,7 @@ class AdapterRandomPictures(
         holder.itemView.img_random.setOnClickListener {
             onCLickPicture.onClickRandom(imageRandomList)
         }
+        holder.itemView.cardViewRandom.animation=AnimationUtils.loadAnimation(holder.itemView.context, R.anim.translate)
 
     }
 }

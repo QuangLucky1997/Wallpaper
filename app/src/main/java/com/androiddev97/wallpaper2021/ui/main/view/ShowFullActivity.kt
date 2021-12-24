@@ -14,7 +14,7 @@ import com.androiddev97.wallpaper2021.ui.main.view.ProcessDownloadActivity.Compa
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.custom_view_imagelist.*
-import kotlinx.android.synthetic.main.custom_view_imagelist.card_view_setWall
+
 import android.provider.MediaStore
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import java.io.ByteArrayOutputStream
@@ -27,7 +27,7 @@ import android.view.Window
 
 class ShowFullActivity : AppCompatActivity() {
 
-    private lateinit var url : String
+    private lateinit var url: String
 
     companion object {
         const val DATA_IMAGE = "picture"
@@ -63,19 +63,19 @@ class ShowFullActivity : AppCompatActivity() {
         group_back.setOnClickListener {
             onBackPressed()
         }
-        card_view_setWall.setOnClickListener {
+        card_set_wallpaper.setOnClickListener {
             val bitMap: Bitmap = img_Walpaper.drawable.toBitmap()
             val wallpaperManager: WallpaperManager =
                 WallpaperManager.getInstance(applicationContext)
             wallpaperManager.setBitmap(bitMap)
             Toast.makeText(this, "Set Wallpaper Success!!", Toast.LENGTH_SHORT).show()
         }
-        group_download.setOnClickListener {
+        card_down.setOnClickListener {
             val intentProcess = Intent(this, ProcessDownloadActivity::class.java)
             intentProcess.putExtra(PICTURES, url)
             startActivity(intentProcess)
         }
-        group_share.setOnClickListener {
+        card_share.setOnClickListener {
             val bitMap: Bitmap = img_Walpaper.drawable.toBitmap()
             val intent = Intent(Intent.ACTION_SEND).setType("image/*")
             val bytes = ByteArrayOutputStream()

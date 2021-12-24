@@ -31,6 +31,7 @@ class SearchActivity : AppCompatActivity(), CLickListener {
     private lateinit var searchPicturesViewModel: ServerViewModel
     private lateinit var connectivityLiveData: ConnectivityLiveData
     private lateinit var searchAdapter: SearchAdapter
+    private var isFirst = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -39,7 +40,10 @@ class SearchActivity : AppCompatActivity(), CLickListener {
             when (isAvailable) {
                 true -> {
                     setUpRecyclerView()
-                    setUpViewModel()
+                    if (!isFirst) {
+                        setUpViewModel()
+                        isFirst = true
+                    }
                     searchData.setOnClickListener {
                         setUpObserver()
                         EditSearch.hideKeyboard()
@@ -47,7 +51,7 @@ class SearchActivity : AppCompatActivity(), CLickListener {
                 }
 
             }
-            setUpObserver()
+            //setUpObserver()
         })
 
         initListener()

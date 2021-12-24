@@ -17,7 +17,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/blue">
+            android:alpha="0.8"
+            android:background="@color/black">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -29,7 +30,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="TODO"
-                    android:src="@drawable/ic_baseline_arrow_back_24" />
+                    android:src="@drawable/ic_baseline_chevron_left_24" />
 
                 <TextView
                     android:id="@+id/textViewCategory"
@@ -39,6 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:text="SEA"
                     android:textSize="@dimen/sp_30" />
             </RelativeLayout>

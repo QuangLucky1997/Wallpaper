@@ -3,6 +3,7 @@ package com.androiddev97.wallpaper2021.ui.fragment
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,14 +25,15 @@ import com.androiddev97.wallpaper2021.utils.ConnectivityLiveData
 import kotlinx.android.synthetic.main.category_fragment.*
 
 
-class CategoryFragment : Fragment(), CLickListener {
+ class CategoryFragment : Fragment(), CLickListener {
+
+
+
     private lateinit var adapterWallPaper: WallpaperAdapter
     private lateinit var connectivityLiveData: ConnectivityLiveData
     private val viewModelWallPaper by lazy {
         ViewModelProviders.of(requireActivity()).get(CategoryViewModel::class.java)
     }
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,6 +53,9 @@ class CategoryFragment : Fragment(), CLickListener {
             }
         })
     }
+
+
+
 
     @SuppressLint("NotifyDataSetChanged")
     private fun observeData() {
@@ -85,9 +90,7 @@ class CategoryFragment : Fragment(), CLickListener {
     }
 
     override fun onClickRandom(photo: Photo) {
-        TODO("Not yet implemented")
     }
-
 
 
 }

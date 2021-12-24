@@ -3,6 +3,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
@@ -12,6 +13,7 @@ import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.list_item_search.view.*
+import kotlinx.android.synthetic.main.wallpaper_adapter.view.*
 
 class SearchAdapter(
     var context: Context,
@@ -47,5 +49,7 @@ class SearchAdapter(
         holder.itemView.img_search.setOnClickListener {
             onCLickPicture.onClickRandom(imageRandomList)
         }
+        holder.itemView.cardViewSearch.animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rotate)
     }
 }
