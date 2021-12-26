@@ -5,8 +5,9 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.androiddev97.wallpaper2021.ui.fragment.CategoryFragment
 import com.androiddev97.wallpaper2021.ui.fragment.RandomPictureFragment
+import com.androiddev97.wallpaper2021.ui.fragment.VideoFragment
 
-class ViewPaperWallppAdapter(manager: FragmentManager): FragmentPagerAdapter(manager) {
+class ViewPaperWallppAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
     override fun getCount(): Int {
         return 2
     }
@@ -14,6 +15,7 @@ class ViewPaperWallppAdapter(manager: FragmentManager): FragmentPagerAdapter(man
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> CategoryFragment()
+            //1 -> VideoFragment()
             else -> {
                 return RandomPictureFragment()
             }
@@ -23,6 +25,7 @@ class ViewPaperWallppAdapter(manager: FragmentManager): FragmentPagerAdapter(man
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
             0 -> "Collection"
+          //  1 -> "Video"
             else -> {
                 return "Random WallPaper"
             }

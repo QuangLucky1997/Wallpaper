@@ -18,11 +18,10 @@ import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
 import com.androiddev97.wallpaper2021.data.model.pexel.PexelReponse
 import com.androiddev97.wallpaper2021.data.model.pexel.Photo
-import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.androiddev97.wallpaper2021.ui.base.ServerViewModelFactory
 import com.androiddev97.wallpaper2021.ui.main.view.ShowFullActivity
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.ServerViewModel
-import com.androiddev97.wallpaper2021.utils.ConnectivityLiveData
+import com.androiddev97.wallpaper2021.utils.ConnectionLiveData
 import com.androiddev97.wallpaper2021.utils.Resources
 import com.androiddev97.wallpaper2021.utils.Status
 import kotlinx.android.synthetic.main.random_fragment.*
@@ -34,7 +33,6 @@ import kotlinx.coroutines.withContext
 class RandomPictureFragment : Fragment(), CLickListener {
     private lateinit var randomPicturesViewModel: ServerViewModel
     private lateinit var adapterRandomPictures: AdapterRandomPictures
-    private lateinit var connectivityLiveData: ConnectivityLiveData
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,23 +43,15 @@ class RandomPictureFragment : Fragment(), CLickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        connectivityLiveData = ConnectivityLiveData(requireActivity().application)
-        connectivityLiveData.observe(requireActivity(), { isAvailable ->
-            when (isAvailable) {
-                true -> {
-                    setUpRecyclerView()
-                    setUpViewModel()
-                    setUpObserver()
-
-                }
-            }
-        })
-
+        setUpRecyclerView()
+        setUpViewModel()
+        if (activity != null) {
+            setUpObserver()
+        }
 
     }
 
     private fun setUpObserver() {
-        Log.d("Main123", "abc1234")
         randomPicturesViewModel.getPicturesPexel(1, 80)
             .observe(requireActivity(), { data ->
                 getDataRandom(data)

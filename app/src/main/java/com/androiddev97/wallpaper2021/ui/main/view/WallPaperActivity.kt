@@ -4,7 +4,6 @@ package com.androiddev97.wallpaper2021.ui.main.view
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -30,7 +29,6 @@ class WallPaperActivity : AppCompatActivity() {
 
 
     private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wall_paper)

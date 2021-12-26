@@ -4,17 +4,18 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
+import android.widget.Toast
 import com.androiddev97.wallpaper2021.R
-import kotlinx.android.synthetic.main.activity_splash.*
+import com.androiddev97.wallpaper2021.utils.ConnectionLiveData
 
 class SplashActivity : Activity() {
+    private lateinit var connectionLiveData: ConnectionLiveData
+
     @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,8 +28,9 @@ class SplashActivity : Activity() {
             startActivity(Intent(this, WallPaperActivity::class.java))
             finish()
         }, 2000)
-    }
 
+
+    }
 
 
     private fun setWindowFlag(bits: Int, on: Boolean) {
@@ -40,6 +42,22 @@ class SplashActivity : Activity() {
             winParams.flags = winParams.flags and bits.inv()
         }
         win.attributes = winParams
+    }
+
+    private fun checkConnectionInternet() {
+        connectionLiveData = ConnectionLiveData(application)
+//        connectionLiveData.observe(this,), { isConnected ->
+//            if (isConnected) {
+//                Handler(Looper.getMainLooper()).postDelayed({
+//                    startActivity(Intent(this, WallPaperActivity::class.java))
+//                    finish()
+//                }, 2000)
+//            }else
+//            {
+//
+//            }
+//        })
+
     }
 
 }

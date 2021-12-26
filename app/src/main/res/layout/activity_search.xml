@@ -29,6 +29,9 @@
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@+id/searchData"
                     android:background="@null"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:singleLine="true"
                     android:textStyle="bold"
                     android:hint="@string/search"
                     android:textColorHint="#868787" />

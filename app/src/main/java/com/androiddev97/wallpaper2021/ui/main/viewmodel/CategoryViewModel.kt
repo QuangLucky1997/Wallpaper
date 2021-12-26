@@ -7,11 +7,10 @@ import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
 import com.androiddev97.wallpaper2021.data.repository.FirebaseRepository
 
-class CategoryViewModel : ViewModel() {
-    private val wallPaperRepository = FirebaseRepository()
+class CategoryViewModel(private val firebaseRepository: FirebaseRepository) : ViewModel() {
     fun fetchDataFromFireBase(): LiveData<MutableList<WallPaper>> {
         val mutableData = MutableLiveData<MutableList<WallPaper>>()
-        wallPaperRepository.getCategory().observeForever { wallList ->
+        firebaseRepository.getCategory().observeForever { wallList ->
             mutableData.value = wallList
         }
         return mutableData
@@ -19,7 +18,7 @@ class CategoryViewModel : ViewModel() {
 
     fun fetchInfoImage(titleString: String): LiveData<MutableList<InfoImage>> {
         val mutableData = MutableLiveData<MutableList<InfoImage>>()
-        wallPaperRepository.getListPhotos(titleString).observeForever { listPhotos ->
+        firebaseRepository.getListPhotos(titleString).observeForever { listPhotos ->
             mutableData.value = listPhotos
         }
         return mutableData

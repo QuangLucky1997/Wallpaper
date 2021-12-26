@@ -29,44 +29,24 @@ import kotlinx.coroutines.withContext
 class SearchActivity : AppCompatActivity(), CLickListener {
 
     private lateinit var searchPicturesViewModel: ServerViewModel
-    private lateinit var connectivityLiveData: ConnectivityLiveData
     private lateinit var searchAdapter: SearchAdapter
-    private var isFirst = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-        connectivityLiveData = ConnectivityLiveData(this.application)
-        connectivityLiveData.observe(this, { isAvailable ->
-            when (isAvailable) {
-                true -> {
-                    setUpRecyclerView()
-                    if (!isFirst) {
-                        setUpViewModel()
-                        isFirst = true
-                    }
-                    searchData.setOnClickListener {
-                        setUpObserver()
-                        EditSearch.hideKeyboard()
-                    }
-                }
-
-            }
-            //setUpObserver()
-        })
-
         initListener()
-
+        setUpRecyclerView()
+        setUpViewModel()
+        searchData.setOnClickListener {
+            setUpObserver()
+            EditSearch.hideKeyboard()
+        }
     }
-
-
     private fun setUpObserver() {
         searchPicturesViewModel.searchPictures(EditSearch.text.trim().toString(), 80)
             .observe(this, { data ->
                 getDataRandom(data)
             })
     }
-
-
     private fun setUpViewModel() {
         val viewModelWeatherFactory =
             ServerViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
@@ -76,8 +56,6 @@ class SearchActivity : AppCompatActivity(), CLickListener {
                 viewModelWeatherFactory
             ).get(ServerViewModel::class.java)
     }
-
-
     private fun getDataRandom(it: Resources<PexelReponse>) {
         it.let {
             when (it.status) {

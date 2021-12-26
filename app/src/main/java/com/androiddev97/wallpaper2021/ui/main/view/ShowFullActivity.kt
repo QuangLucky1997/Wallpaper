@@ -38,11 +38,6 @@ class ShowFullActivity : AppCompatActivity() {
         setContentView(R.layout.custom_view_imagelist)
         initData()
         initListener()
-//        val w: Window = window // in Activity's onCreate() for instance
-//        w.setFlags(
-//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-//        )
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
