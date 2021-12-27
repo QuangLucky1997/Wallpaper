@@ -22,6 +22,7 @@
         android:layout_width="@dimen/dp_40"
         android:layout_height="@dimen/dp_40"
         android:layout_margin="@dimen/dp_20"
+        android:alpha="0.6"
         android:background="@drawable/circle_custom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -39,10 +40,11 @@
         android:id="@+id/txt_thumb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_35"
-        android:text="ajshasj"
+        android:layout_margin="@dimen/dp_20"
+        android:ellipsize="marquee"
+        android:textStyle="bold|italic"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_20"
+        android:textSize="@dimen/sp_14"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -51,7 +53,7 @@
         android:layout_width="@dimen/dp_40"
         android:layout_height="@dimen/dp_40"
         android:layout_marginEnd="@dimen/dp_10"
-        android:layout_marginBottom="@dimen/dp_30"
+        android:layout_marginBottom="@dimen/dp_60"
         android:alpha="0.6"
         app:cardBackgroundColor="#424141"
         app:cardCornerRadius="@dimen/dp_10"

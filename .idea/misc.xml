@@ -4,17 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Wallpaper/app/src/main/res/drawable/bg_radius_10.xml" value="0.3055555555555556" />
+        <entry key="..\:/Wallpaper/app/src/main/res/drawable/circle_custom.xml" value="0.3828125" />
         <entry key="..\:/Wallpaper/app/src/main/res/drawable/ic_baseline_chevron_left_24.xml" value="0.3828125" />
         <entry key="..\:/Wallpaper/app/src/main/res/drawable/ic_baseline_download_24.xml" value="0.3828125" />
         <entry key="..\:/Wallpaper/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.3828125" />
         <entry key="..\:/Wallpaper/app/src/main/res/drawable/ic_baseline_smartphone_24.xml" value="0.3828125" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/activity_search.xml" value="0.33" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/activity_splash.xml" value="0.36666666666666664" />
-        <entry key="..\:/Wallpaper/app/src/main/res/layout/activity_wall_paper.xml" value="0.14" />
+        <entry key="..\:/Wallpaper/app/src/main/res/layout/activity_wall_paper.xml" value="0.36666666666666664" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/category_fragment.xml" value="0.34375" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_random_pictures.xml" value="0.25" />
-        <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_view_imagelist.xml" value="0.2" />
-        <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_viewpaper.xml" value="0.22" />
+        <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_view_imagelist.xml" value="0.36666666666666664" />
+        <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_viewpaper.xml" value="0.36666666666666664" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/detail_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/detail_custom.xml" value="0.36666666666666664" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/list_item_search.xml" value="0.36666666666666664" />

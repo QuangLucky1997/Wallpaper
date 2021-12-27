@@ -113,6 +113,7 @@ class RandomPictureFragment : Fragment(), CLickListener {
     override fun onClickRandom(photo: Photo) {
         val intentRandom = Intent(activity, ShowFullActivity::class.java)
         intentRandom.putExtra(ShowFullActivity.DATA_IMAGE, photo.src.portrait)
+        intentRandom.putExtra(ShowFullActivity.DATA_DES,photo.alt)
         startActivity(intentRandom)
     }
 

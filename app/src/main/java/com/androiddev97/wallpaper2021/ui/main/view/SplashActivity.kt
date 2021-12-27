@@ -12,6 +12,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.utils.ConnectionLiveData
+import com.androiddev97.wallpaper2021.utils.isNetworkAvailable
 
 class SplashActivity : Activity() {
     private lateinit var connectionLiveData: ConnectionLiveData
@@ -24,10 +25,14 @@ class SplashActivity : Activity() {
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false)
         window.statusBarColor = Color.TRANSPARENT
-        Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, WallPaperActivity::class.java))
-            finish()
-        }, 2000)
+        if (isNetworkAvailable()) {
+            Handler(Looper.getMainLooper()).postDelayed({
+                startActivity(Intent(this, WallPaperActivity::class.java))
+                finish()
+            }, 2000)
+        } else {
+            Toast.makeText(this, "Please check your internet!!", Toast.LENGTH_LONG).show()
+        }
 
 
     }

@@ -1,6 +1,7 @@
 package com.androiddev97.wallpaper2021.ui.main.view
 
 import android.app.WallpaperManager
+import android.content.ClipDescription
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -28,9 +29,11 @@ import android.view.Window
 class ShowFullActivity : AppCompatActivity() {
 
     private lateinit var url: String
+    private lateinit var description: String
 
     companion object {
         const val DATA_IMAGE = "picture"
+        const val DATA_DES = "des"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,45 +51,52 @@ class ShowFullActivity : AppCompatActivity() {
 
     private fun initData() {
         url = intent.getStringExtra(DATA_IMAGE).toString()
+        description = intent.getStringExtra(DATA_DES).toString()
         Glide.with(applicationContext).load(url)
             .override(600, 800).diskCacheStrategy(
                 DiskCacheStrategy.AUTOMATIC
             ).into(img_Walpaper)
+        if (description != "null") {
+            txt_thumb.text = description
+        } else {
+            txt_thumb.visibility = View.GONE
+        }
     }
 
-    private fun initListener() {
-        group_back.setOnClickListener {
-            onBackPressed()
-        }
-        card_set_wallpaper.setOnClickListener {
-            val bitMap: Bitmap = img_Walpaper.drawable.toBitmap()
-            val wallpaperManager: WallpaperManager =
-                WallpaperManager.getInstance(applicationContext)
-            wallpaperManager.setBitmap(bitMap)
-            Toast.makeText(this, "Set Wallpaper Success!!", Toast.LENGTH_SHORT).show()
-        }
-        card_down.setOnClickListener {
-            val intentProcess = Intent(this, ProcessDownloadActivity::class.java)
-            intentProcess.putExtra(PICTURES, url)
-            startActivity(intentProcess)
-        }
-        card_share.setOnClickListener {
-            val bitMap: Bitmap = img_Walpaper.drawable.toBitmap()
-            val intent = Intent(Intent.ACTION_SEND).setType("image/*")
-            val bytes = ByteArrayOutputStream()
-            bitMap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-            val path = MediaStore.Images.Media.insertImage(
-                this.contentResolver,
-                bitMap,
-                "WallpaperHD",
-                null
-            )
-            val uri = Uri.parse(path)
-            intent.putExtra(Intent.EXTRA_STREAM, uri)
-            startActivity(intent)
-        }
 
+private fun initListener() {
+    group_back.setOnClickListener {
+        onBackPressed()
     }
+    card_set_wallpaper.setOnClickListener {
+        val bitMap: Bitmap = img_Walpaper.drawable.toBitmap()
+        val wallpaperManager: WallpaperManager =
+            WallpaperManager.getInstance(applicationContext)
+        wallpaperManager.setBitmap(bitMap)
+        Toast.makeText(this, "Set Wallpaper Success!!", Toast.LENGTH_SHORT).show()
+    }
+    card_down.setOnClickListener {
+        val intentProcess = Intent(this, ProcessDownloadActivity::class.java)
+        intentProcess.putExtra(PICTURES, url)
+        startActivity(intentProcess)
+    }
+    card_share.setOnClickListener {
+        val bitMap: Bitmap = img_Walpaper.drawable.toBitmap()
+        val intent = Intent(Intent.ACTION_SEND).setType("image/*")
+        val bytes = ByteArrayOutputStream()
+        bitMap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val path = MediaStore.Images.Media.insertImage(
+            this.contentResolver,
+            bitMap,
+            "WallpaperHD",
+            null
+        )
+        val uri = Uri.parse(path)
+        intent.putExtra(Intent.EXTRA_STREAM, uri)
+        startActivity(intent)
+    }
+
+}
 
 
 }
