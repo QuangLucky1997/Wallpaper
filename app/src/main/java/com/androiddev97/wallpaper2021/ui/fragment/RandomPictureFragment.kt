@@ -18,6 +18,7 @@ import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
 import com.androiddev97.wallpaper2021.data.model.pexel.PexelReponse
 import com.androiddev97.wallpaper2021.data.model.pexel.Photo
+import com.androiddev97.wallpaper2021.data.model.popular.Popular
 import com.androiddev97.wallpaper2021.ui.base.ServerViewModelFactory
 import com.androiddev97.wallpaper2021.ui.main.view.ShowFullActivity
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.ServerViewModel
@@ -115,6 +116,10 @@ class RandomPictureFragment : Fragment(), CLickListener {
         intentRandom.putExtra(ShowFullActivity.DATA_IMAGE, photo.src.portrait)
         intentRandom.putExtra(ShowFullActivity.DATA_DES,photo.alt)
         startActivity(intentRandom)
+    }
+
+    override fun onClickPopular(popular: Popular) {
+        TODO("Not yet implemented")
     }
 
 

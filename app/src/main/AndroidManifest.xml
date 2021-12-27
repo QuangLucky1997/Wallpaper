@@ -20,9 +20,12 @@
         android:theme="@style/Theme.Wallpaper2021"
         tools:targetApi="q">
         <activity
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:name=".ui.main.view.SearchActivity"
+            android:name=".ui.main.view.PopularListActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.main.view.SearchActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".ui.main.view.ProcessDownloadActivity"
             android:exported="false"
@@ -37,16 +40,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.main.view.WallPaperActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity android:name=".ui.main.view.WallPaperActivity" />
         <activity
             android:name=".ui.main.view.DetailsListPicturesActivity"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".ui.main.view.ShowFullActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar"
-            />
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
     </application>
 
 </manifest>

@@ -30,4 +30,10 @@
     <color name="primaryDateColorNight">#B3FFFFFF</color>
     <color name="primaryBackgroundColorNight">#303030</color>
     <color name="primaryCardBackgroundColorNight">#424242</color>
+
+    <color name="green">#68B40F</color>
+    <color name="yellow">#CAB604</color>
+
+
+
 </resources>

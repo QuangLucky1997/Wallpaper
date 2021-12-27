@@ -13,6 +13,7 @@ import com.androiddev97.wallpaper2021.adapter.DetailImageAdapter
 import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
 import com.androiddev97.wallpaper2021.data.model.pexel.Photo
+import com.androiddev97.wallpaper2021.data.model.popular.Popular
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.androiddev97.wallpaper2021.ui.base.WallPaperViewModelFactory
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.CategoryViewModel
@@ -85,6 +86,10 @@ class DetailsListPicturesActivity : AppCompatActivity(), CLickListener {
     }
 
     override fun onClickRandom(photo: Photo) {
+    }
+
+    override fun onClickPopular(popular: Popular) {
+        TODO("Not yet implemented")
     }
 
 

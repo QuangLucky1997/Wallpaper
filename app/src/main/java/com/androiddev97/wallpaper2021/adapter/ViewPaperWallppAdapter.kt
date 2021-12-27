@@ -4,30 +4,30 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.androiddev97.wallpaper2021.ui.fragment.CategoryFragment
+import com.androiddev97.wallpaper2021.ui.fragment.PopularFragment
 import com.androiddev97.wallpaper2021.ui.fragment.RandomPictureFragment
-import com.androiddev97.wallpaper2021.ui.fragment.VideoFragment
 
 class ViewPaperWallppAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
     override fun getCount(): Int {
-        return 2
+        return 3
     }
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> CategoryFragment()
-            //1 -> VideoFragment()
+            0 -> PopularFragment()
+            1 -> CategoryFragment()
             else -> {
                 return RandomPictureFragment()
             }
         }
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
+    override fun getPageTitle(position: Int): CharSequence {
         return when (position) {
-            0 -> "Collection"
-          //  1 -> "Video"
+            0 -> "Popular"
+            1 -> "Collection"
             else -> {
-                return "Random WallPaper"
+                return "Random"
             }
         }
 

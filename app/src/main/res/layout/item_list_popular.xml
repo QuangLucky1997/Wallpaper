@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:id="@+id/cardViewPopularList"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_list_popular"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="@dimen/dp_200"
+        android:scaleType="fitXY"
+        android:src="@drawable/winter" />
+
+</androidx.cardview.widget.CardView>

@@ -14,12 +14,14 @@ import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.custom_random_pictures.view.*
+import kotlinx.android.synthetic.main.custom_random_pictures.view.cardViewRandom
 import kotlinx.android.synthetic.main.detail_custom.view.*
+import kotlinx.android.synthetic.main.item_list_popular.view.*
 
 
 class AdapterRandomPictures(
     var context: Context,
-    private var onCLickPicture: CLickListener,private val mListRandomPicturesModel: List<Photo>
+    private var onCLickPicture: CLickListener, private val mListRandomPicturesModel: List<Photo>
 ) : RecyclerView.Adapter<AdapterRandomPictures.RandomHolder>() {
     private var itemPicturesRandomList: List<Photo> = mListRandomPicturesModel
 
@@ -31,7 +33,6 @@ class AdapterRandomPictures(
                 .inflate(R.layout.custom_random_pictures, parent, false)
         )
     }
-
 
 
     @SuppressLint("NotifyDataSetChanged")
@@ -48,13 +49,14 @@ class AdapterRandomPictures(
     @SuppressLint("CheckResult")
     override fun onBindViewHolder(holder: RandomHolder, position: Int) {
         val imageRandomList = itemPicturesRandomList[position]
-        Glide.with(context).load(imageRandomList.src.medium).override(400,400)
+        Glide.with(context).load(imageRandomList.src.medium).override(400, 400)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(holder.itemView.img_random)
         holder.itemView.img_random.setOnClickListener {
             onCLickPicture.onClickRandom(imageRandomList)
         }
-        holder.itemView.cardViewRandom.animation=AnimationUtils.loadAnimation(holder.itemView.context, R.anim.translate)
+        holder.itemView.cardViewRandom.animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rotate)
 
     }
 }
