@@ -20,5 +20,5 @@ project Advance
  - ViewModel and LiveData
  
 # Acknowledgments
-  - Inspiration ToDoApp
-  - MaterialDesignDemo by stormyhide
+  - Inspiration Wallpaper
+  - MaterialDesignDemo byNQuangAndroidDEV
