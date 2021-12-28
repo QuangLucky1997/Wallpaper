@@ -105,6 +105,7 @@ class SearchActivity : AppCompatActivity(), CLickListener {
 
     override fun onClickRandom(photo: Photo) {
         val intentRandom = Intent(this, ShowFullActivity::class.java)
+        intentRandom.putExtra(ShowFullActivity.DATA_DES,photo.alt)
         intentRandom.putExtra(ShowFullActivity.DATA_IMAGE, photo.src.portrait)
         startActivity(intentRandom)
     }

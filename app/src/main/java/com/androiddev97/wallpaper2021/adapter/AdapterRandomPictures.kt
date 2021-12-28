@@ -13,6 +13,7 @@ import com.androiddev97.wallpaper2021.data.model.pexel.Photo
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import kotlinx.android.synthetic.main.custom_random_pictures.view.*
 import kotlinx.android.synthetic.main.custom_random_pictures.view.cardViewRandom
 import kotlinx.android.synthetic.main.detail_custom.view.*
@@ -49,7 +50,7 @@ class AdapterRandomPictures(
     @SuppressLint("CheckResult")
     override fun onBindViewHolder(holder: RandomHolder, position: Int) {
         val imageRandomList = itemPicturesRandomList[position]
-        Glide.with(context).load(imageRandomList.src.medium).override(400, 400)
+        Glide.with(context).load(imageRandomList.src.large).override(400,600)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(holder.itemView.img_random)
         holder.itemView.img_random.setOnClickListener {

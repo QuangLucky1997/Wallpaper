@@ -27,9 +27,9 @@
 
                 <ImageView
                     android:id="@+id/imgBackPopular"
-                    android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_baseline_chevron_left_24" />
 
                 <TextView
@@ -52,6 +52,11 @@
         android:layout_marginTop="@dimen/dp_0"
         android:id="@+id/recycle_view_list_popular"
         tools:listitem="@layout/item_list_popular"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <FrameLayout
+        android:id="@+id/rootMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

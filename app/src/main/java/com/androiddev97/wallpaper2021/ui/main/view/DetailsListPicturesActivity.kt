@@ -89,7 +89,6 @@ class DetailsListPicturesActivity : AppCompatActivity(), CLickListener {
     }
 
     override fun onClickPopular(popular: Popular) {
-        TODO("Not yet implemented")
     }
 
 

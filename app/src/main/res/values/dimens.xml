@@ -215,5 +215,6 @@
     <dimen name="dp_300">300dp</dimen>
     <dimen name="dp_220">220dp</dimen>
     <dimen name="dp_400">400dp</dimen>
+    <dimen name="dp_120">120dp</dimen>
 
 </resources>

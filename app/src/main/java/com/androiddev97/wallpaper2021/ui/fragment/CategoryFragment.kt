@@ -95,7 +95,7 @@ class CategoryFragment : Fragment(), CLickListener {
     }
 
     override fun onClickPopular(popular: Popular) {
-        TODO("Not yet implemented")
+
     }
 
 

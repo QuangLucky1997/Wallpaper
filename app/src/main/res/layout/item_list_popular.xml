@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/img_list_popular"
         android:layout_width="@dimen/dp_150"
-        android:layout_height="@dimen/dp_200"
+        android:layout_height="@dimen/dp_220"
         android:scaleType="fitXY"
         android:src="@drawable/winter" />
 

@@ -43,7 +43,7 @@ class AdapterPopularList (
 
     override fun onBindViewHolder(holder: PopularListHolder, position: Int) {
         val imagePopularList = itemPicturesPopularList[position]
-        Glide.with(context).load(imagePopularList.src.tiny).override(500, 500)
+        Glide.with(context).load(imagePopularList.src.large).override(600, 600)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(holder.itemView.img_list_popular)
         holder.itemView.img_list_popular.setOnClickListener {

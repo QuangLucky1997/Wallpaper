@@ -47,7 +47,7 @@ class PopularFragment : Fragment(), CLickListener {
         listPopular!!.add(Popular(R.drawable.animal, "Animals"))
         listPopular!!.add(Popular(R.drawable.neon, "Neon"))
         listPopular!!.add(Popular(R.drawable.winter, "Winter"))
-        listPopular!!.add(Popular(R.drawable.quotes, "Quotes"))
+        listPopular!!.add(Popular(R.drawable.chamngon, "Quotes"))
         listPopular!!.add(Popular(R.drawable.sports, "Sports"))
         listPopular!!.add(Popular(R.drawable.plane, "Plane"))
         listPopular!!.add(Popular(R.drawable.city, "City"))

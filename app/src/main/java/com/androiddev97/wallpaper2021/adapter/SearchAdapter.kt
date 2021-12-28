@@ -43,7 +43,8 @@ class SearchAdapter(
 
     override fun onBindViewHolder(holder: SearchHolder, position: Int) {
         val imageRandomList = itemPicturesRandomList[position]
-        Glide.with(context).load(imageRandomList.src.tiny).override(400,400)
+        Glide.with(context).load(imageRandomList.src.
+        large).override(500,500)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(holder.itemView.img_search)
         holder.itemView.img_search.setOnClickListener {
