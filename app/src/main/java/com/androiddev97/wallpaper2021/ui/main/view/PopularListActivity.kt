@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.androiddev97.wallpaper2021.R
@@ -22,6 +23,7 @@ import com.androiddev97.wallpaper2021.ui.base.ServerViewModelFactory
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.ServerViewModel
 import com.androiddev97.wallpaper2021.utils.Resources
 import com.androiddev97.wallpaper2021.utils.Status
+import com.androiddev97.wallpaper2021.utils.isNetworkAvailable
 import kotlinx.android.synthetic.main.activity_popular_list.*
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.coroutines.CoroutineScope
@@ -41,9 +43,14 @@ class PopularListActivity : AppCompatActivity(), CLickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_popular_list)
-        setUpRecyclerView()
-        setUpViewModel()
-        setUpObserver()
+        if (isNetworkAvailable()) {
+            setUpRecyclerView()
+            setUpViewModel()
+            setUpObserver()
+        } else {
+            Toast.makeText(this, "Please check your internet!!", Toast.LENGTH_LONG).show()
+        }
+
         initListener()
     }
 

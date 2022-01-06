@@ -7,7 +7,7 @@
     android:layout_margin="@dimen/dp_10"
     app:cardCornerRadius="@dimen/dp_5">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -22,8 +22,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
             android:text="abc"
+            android:fontFamily="@font/lucki"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="@dimen/dp_24"

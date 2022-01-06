@@ -4,8 +4,11 @@ import SearchAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.androiddev97.wallpaper2021.R
@@ -38,16 +41,23 @@ class SearchActivity : AppCompatActivity(), CLickListener {
         setUpRecyclerView()
         setUpViewModel()
         searchData.setOnClickListener {
-            setUpObserver()
-            EditSearch.hideKeyboard()
+            if (isNetworkAvailable()) {
+                setUpObserver()
+                EditSearch.hideKeyboard()
+            } else {
+                Toast.makeText(this, "Please check your internet!!", Toast.LENGTH_LONG).show()
+            }
+
         }
     }
+
     private fun setUpObserver() {
         searchPicturesViewModel.searchPictures(EditSearch.text.trim().toString(), 80)
             .observe(this, { data ->
                 getDataRandom(data)
             })
     }
+
     private fun setUpViewModel() {
         val viewModelWeatherFactory =
             ServerViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
@@ -57,6 +67,7 @@ class SearchActivity : AppCompatActivity(), CLickListener {
                 viewModelWeatherFactory
             ).get(ServerViewModel::class.java)
     }
+
     private fun getDataRandom(it: Resources<PexelReponse>) {
         it.let {
             when (it.status) {
@@ -105,7 +116,7 @@ class SearchActivity : AppCompatActivity(), CLickListener {
 
     override fun onClickRandom(photo: Photo) {
         val intentRandom = Intent(this, ShowFullActivity::class.java)
-        intentRandom.putExtra(ShowFullActivity.DATA_DES,photo.alt)
+        intentRandom.putExtra(ShowFullActivity.DATA_DES, photo.alt)
         intentRandom.putExtra(ShowFullActivity.DATA_IMAGE, photo.src.portrait)
         startActivity(intentRandom)
     }

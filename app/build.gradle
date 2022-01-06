@@ -48,6 +48,8 @@ dependencies {
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
+
+
     implementation 'com.firebaseui:firebase-ui-database:4.3.2'
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'

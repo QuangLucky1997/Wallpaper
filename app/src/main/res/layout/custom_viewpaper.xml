@@ -25,26 +25,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/dp_10"
                     android:layout_marginTop="@dimen/dp_10"
                     android:layout_marginEnd="@dimen/dp_10"
-                    android:layout_marginBottom="@dimen/dp_10"
-                    android:text="WallPaper HD"
+                    android:fontFamily="@font/pacificoregular"
+                    android:text="@string/wallpaper_hd"
                     android:textColor="?android:textColorPrimary"
-                    android:textSize="@dimen/sp_25"
-                    android:textStyle="bold|italic" />
+                    android:textSize="@dimen/sp_22"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/iconSearch"
                     android:layout_width="@dimen/dp_40"
                     android:layout_height="@dimen/dp_40"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="@dimen/dp_10"
                     android:layout_marginTop="@dimen/dp_10"
                     android:layout_marginEnd="@dimen/dp_10"
                     android:layout_marginBottom="@dimen/dp_10"
-                    app:tint="?android:textColorPrimary"
-                    android:src="@drawable/ic_baseline_search_24" />
+                    android:src="@drawable/ic_baseline_search_24"
+                    app:tint="?android:textColorPrimary" />
             </RelativeLayout>
 
 

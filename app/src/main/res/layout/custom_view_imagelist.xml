@@ -41,10 +41,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_20"
+        android:fontFamily="@font/cokki"
         android:ellipsize="marquee"
         android:textStyle="bold|italic"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_14"
+        android:textSize="@dimen/sp_16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
