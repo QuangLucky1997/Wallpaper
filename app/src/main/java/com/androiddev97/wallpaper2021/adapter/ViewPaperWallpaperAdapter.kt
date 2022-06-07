@@ -7,7 +7,7 @@ import com.androiddev97.wallpaper2021.ui.fragment.CategoryFragment
 import com.androiddev97.wallpaper2021.ui.fragment.PopularFragment
 import com.androiddev97.wallpaper2021.ui.fragment.RandomPictureFragment
 
-class ViewPaperWallppAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
+class ViewPaperWallpaperAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
     override fun getCount(): Int {
         return 3
     }

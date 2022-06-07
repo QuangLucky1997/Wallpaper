@@ -8,7 +8,7 @@ import com.androiddev97.wallpaper2021.data.model.popular.Popular
 interface CLickListener {
     fun onClick(wallPaper: WallPaper)
     fun onClickShowFull(infoImage: InfoImage)
-    fun onClickRandom( photo: Photo)
+    fun onClickRandom( photo: Photo, photos: List<Photo>)
     fun onClickPopular(popular: Popular)
 
 

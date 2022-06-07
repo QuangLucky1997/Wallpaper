@@ -54,7 +54,7 @@ class AdapterRandomPictures(
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(holder.itemView.img_random)
         holder.itemView.img_random.setOnClickListener {
-            onCLickPicture.onClickRandom(imageRandomList)
+            onCLickPicture.onClickRandom(imageRandomList,itemPicturesRandomList)
         }
         holder.itemView.cardViewRandom.animation =
             AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rotate)

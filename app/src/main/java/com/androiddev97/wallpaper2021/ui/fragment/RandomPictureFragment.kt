@@ -25,14 +25,15 @@ import com.androiddev97.wallpaper2021.ui.main.viewmodel.ServerViewModel
 import com.androiddev97.wallpaper2021.utils.ConnectionLiveData
 import com.androiddev97.wallpaper2021.utils.Resources
 import com.androiddev97.wallpaper2021.utils.Status
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.random_fragment.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
+@AndroidEntryPoint
 class RandomPictureFragment : Fragment(), CLickListener {
-    private lateinit var randomPicturesViewModel: ServerViewModel
+    private val  randomPicturesViewModel: ServerViewModel by viewModels()
     private lateinit var adapterRandomPictures: AdapterRandomPictures
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,7 +46,7 @@ class RandomPictureFragment : Fragment(), CLickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRecyclerView()
-        setUpViewModel()
+       // setUpViewModel()
         if (activity != null) {
             setUpObserver()
         }
@@ -54,20 +55,20 @@ class RandomPictureFragment : Fragment(), CLickListener {
 
     private fun setUpObserver() {
         randomPicturesViewModel.getPicturesPexel(1, 80)
-            .observe(requireActivity(), { data ->
+            .observe(requireActivity()) { data ->
                 getDataRandom(data)
-            })
+            }
     }
 
-    private fun setUpViewModel() {
-        val viewModelWeatherFactory =
-            ServerViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        randomPicturesViewModel =
-            ViewModelProvider(
-                requireActivity(),
-                viewModelWeatherFactory
-            ).get(ServerViewModel::class.java)
-    }
+//    private fun setUpViewModel() {
+//        val viewModelWeatherFactory =
+//            ServerViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
+//        randomPicturesViewModel =
+//            ViewModelProvider(
+//                requireActivity(),
+//                viewModelWeatherFactory
+//            ).get(ServerViewModel::class.java)
+//    }
 
     private fun getDataRandom(it: Resources<PexelReponse>) {
         it.let {
@@ -111,15 +112,16 @@ class RandomPictureFragment : Fragment(), CLickListener {
     override fun onClickShowFull(infoImage: InfoImage) {
     }
 
-    override fun onClickRandom(photo: Photo) {
+    override fun onClickRandom(photo: Photo, photos: List<Photo>) {
         val intentRandom = Intent(activity, ShowFullActivity::class.java)
         intentRandom.putExtra(ShowFullActivity.DATA_IMAGE, photo.src.portrait)
         intentRandom.putExtra(ShowFullActivity.DATA_DES,photo.alt)
         startActivity(intentRandom)
     }
 
+
     override fun onClickPopular(popular: Popular) {
-        TODO("Not yet implemented")
+
     }
 
 

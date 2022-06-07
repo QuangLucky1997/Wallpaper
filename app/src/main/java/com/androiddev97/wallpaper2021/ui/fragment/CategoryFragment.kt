@@ -1,12 +1,14 @@
 package com.androiddev97.wallpaper2021.ui.fragment
 
 import android.annotation.SuppressLint
+import android.app.Fragment
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
@@ -21,12 +23,13 @@ import com.androiddev97.wallpaper2021.ui.base.WallPaperViewModelFactory
 import com.androiddev97.wallpaper2021.ui.main.view.DetailsListPicturesActivity
 //import com.androiddev97.wallpaper2021.ui.main.view.DetailsListPicturesActivity
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.CategoryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.category_fragment.*
 
-
+@AndroidEntryPoint
 class CategoryFragment : Fragment(), CLickListener {
     private lateinit var adapterWallPaper: WallpaperAdapter
-    private var categoryViewModel: CategoryViewModel? = null
+    private val categoryViewModel: CategoryViewModel by viewModels()
     private val viewModelWallPaper by lazy {
         ViewModelProviders.of(requireActivity()).get(CategoryViewModel::class.java)
     }
@@ -43,7 +46,7 @@ class CategoryFragment : Fragment(), CLickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRecycleView()
-        setUpViewModel()
+       // setUpViewModel()
         if (activity != null) {
             observeData()
         }
@@ -51,13 +54,13 @@ class CategoryFragment : Fragment(), CLickListener {
 
     }
 
-    private fun setUpViewModel() {
-        val firebaseViewModelFactory = WallPaperViewModelFactory()
-        categoryViewModel = ViewModelProvider(
-            requireActivity(),
-            firebaseViewModelFactory
-        )[CategoryViewModel::class.java]
-    }
+//    private fun setUpViewModel() {
+//        val firebaseViewModelFactory = WallPaperViewModelFactory()
+//        categoryViewModel = ViewModelProvider(
+//            requireActivity(),
+//            firebaseViewModelFactory
+//        )[CategoryViewModel::class.java]
+//    }
 
 
     @SuppressLint("NotifyDataSetChanged")

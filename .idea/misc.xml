@@ -17,9 +17,9 @@
         <entry key="..\:/Wallpaper/app/src/main/res/layout/activity_wall_paper.xml" value="0.36666666666666664" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/category_fragment.xml" value="0.34375" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_random_pictures.xml" value="0.25" />
-        <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_view_imagelist.xml" value="0.36666666666666664" />
+        <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_view_imagelist.xml" value="0.25" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_view_popular.xml" value="0.36666666666666664" />
-        <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_viewpaper.xml" value="0.36666666666666664" />
+        <entry key="..\:/Wallpaper/app/src/main/res/layout/custom_viewpaper.xml" value="0.25" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/detail_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/detail_custom.xml" value="0.36666666666666664" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/fragment_popular.xml" value="0.36666666666666664" />
@@ -29,6 +29,8 @@
         <entry key="..\:/Wallpaper/app/src/main/res/layout/list_photos_activity.xml" value="0.2557291666666667" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/nav_layout_darkmode.xml" value="0.20520833333333333" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/random_fragment.xml" value="0.25" />
+        <entry key="..\:/Wallpaper/app/src/main/res/layout/show_full_activity.xml" value="0.353125" />
+        <entry key="..\:/Wallpaper/app/src/main/res/layout/test.xml" value="0.3546875" />
         <entry key="..\:/Wallpaper/app/src/main/res/layout/wallpaper_adapter.xml" value="0.20520833333333333" />
         <entry key="..\:/Wallpaper/app/src/main/res/menu/navigation_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/wallpaper2021/Wallpaper/app/src/main/res/drawable/bg_dark.xml" value="0.29444444444444445" />

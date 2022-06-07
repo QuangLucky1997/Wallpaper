@@ -10,7 +10,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.GravityCompat
 
-import com.androiddev97.wallpaper2021.adapter.ViewPaperWallppAdapter
+import com.androiddev97.wallpaper2021.adapter.ViewPaperWallpaperAdapter
 import kotlinx.android.synthetic.main.activity_wall_paper.*
 import kotlinx.android.synthetic.main.custom_viewpaper.*
 import androidx.fragment.app.Fragment
@@ -34,7 +34,7 @@ class WallPaperActivity : AppCompatActivity() {
         setContentView(R.layout.activity_wall_paper)
 
         setSupportActionBar(toolBar)
-        val fragmentAdapter = ViewPaperWallppAdapter(supportFragmentManager)
+        val fragmentAdapter = ViewPaperWallpaperAdapter(supportFragmentManager)
         viewPager.adapter = fragmentAdapter
         tabs.setSelectedTabIndicatorColor(Color.parseColor("#009dff"))
         tabs.setTabTextColors(Color.parseColor("#393838"), Color.parseColor("#009dff"))

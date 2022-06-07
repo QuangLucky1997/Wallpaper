@@ -9,6 +9,7 @@ import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.androiddev97.wallpaper2021.R
@@ -24,22 +25,24 @@ import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.androiddev97.wallpaper2021.ui.base.ServerViewModelFactory
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.ServerViewModel
 import com.androiddev97.wallpaper2021.utils.*
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@AndroidEntryPoint
 class SearchActivity : AppCompatActivity(), CLickListener {
 
-    private lateinit var searchPicturesViewModel: ServerViewModel
+    private val searchPicturesViewModel: ServerViewModel by viewModels()
     private lateinit var searchAdapter: SearchAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         initListener()
         setUpRecyclerView()
-        setUpViewModel()
+        //  setUpViewModel()
         searchData.setOnClickListener {
             if (isNetworkAvailable()) {
                 setUpObserver()
@@ -58,15 +61,15 @@ class SearchActivity : AppCompatActivity(), CLickListener {
             })
     }
 
-    private fun setUpViewModel() {
-        val viewModelWeatherFactory =
-            ServerViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        searchPicturesViewModel =
-            ViewModelProvider(
-                this,
-                viewModelWeatherFactory
-            ).get(ServerViewModel::class.java)
-    }
+//    private fun setUpViewModel() {
+//        val viewModelWeatherFactory =
+//            ServerViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
+//        searchPicturesViewModel =
+//            ViewModelProvider(
+//                this,
+//                viewModelWeatherFactory
+//            ).get(ServerViewModel::class.java)
+//    }
 
     private fun getDataRandom(it: Resources<PexelReponse>) {
         it.let {

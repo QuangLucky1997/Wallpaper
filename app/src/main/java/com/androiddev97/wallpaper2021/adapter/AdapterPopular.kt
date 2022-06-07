@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.custom_random_pictures.view.*
 import kotlinx.android.synthetic.main.custom_view_popular.view.*
+import java.util.*
 
 class AdapterPopular(
     var context: Context,
@@ -24,10 +25,10 @@ class AdapterPopular(
     class PopularHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularHolder {
-        return PopularHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.custom_view_popular, parent, false)
-        )
+            return PopularHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.custom_view_popular, parent, false)
+            )
     }
 
     override fun getItemCount(): Int {

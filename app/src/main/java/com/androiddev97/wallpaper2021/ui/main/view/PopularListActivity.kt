@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.androiddev97.wallpaper2021.R
@@ -18,21 +19,23 @@ import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
 import com.androiddev97.wallpaper2021.data.model.pexel.PexelReponse
 import com.androiddev97.wallpaper2021.data.model.pexel.Photo
+import com.androiddev97.wallpaper2021.data.model.pexel.PhotoList
 import com.androiddev97.wallpaper2021.data.model.popular.Popular
 import com.androiddev97.wallpaper2021.ui.base.ServerViewModelFactory
 import com.androiddev97.wallpaper2021.ui.main.viewmodel.ServerViewModel
 import com.androiddev97.wallpaper2021.utils.Resources
 import com.androiddev97.wallpaper2021.utils.Status
 import com.androiddev97.wallpaper2021.utils.isNetworkAvailable
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_popular_list.*
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
+@AndroidEntryPoint
 class PopularListActivity : AppCompatActivity(), CLickListener {
-    private lateinit var searchPicturesViewModel: ServerViewModel
+    private val searchPicturesViewModel: ServerViewModel by viewModels()
     private lateinit var adapterPopular: AdapterPopularList
     private var dataPopular: String? = null
 
@@ -45,7 +48,7 @@ class PopularListActivity : AppCompatActivity(), CLickListener {
         setContentView(R.layout.activity_popular_list)
         if (isNetworkAvailable()) {
             setUpRecyclerView()
-            setUpViewModel()
+            //setUpViewModel()
             setUpObserver()
         } else {
             Toast.makeText(this, "Please check your internet!!", Toast.LENGTH_LONG).show()
@@ -65,21 +68,21 @@ class PopularListActivity : AppCompatActivity(), CLickListener {
         dataPopular = intent.getSerializableExtra(DATA_POPULAR).toString()
         textViewTitlePopular.text = dataPopular!!
         searchPicturesViewModel.searchPictures(dataPopular!!, 80)
-            .observe(this, { data ->
+            .observe(this) { data ->
                 getDataRandom(data)
-            })
+            }
     }
 
 
-    private fun setUpViewModel() {
-        val viewModelWeatherFactory =
-            ServerViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        searchPicturesViewModel =
-            ViewModelProvider(
-                this,
-                viewModelWeatherFactory
-            ).get(ServerViewModel::class.java)
-    }
+//    private fun setUpViewModel() {
+//        val viewModelWeatherFactory =
+//            ServerViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
+//        searchPicturesViewModel =
+//            ViewModelProvider(
+//                this,
+//                viewModelWeatherFactory
+//            ).get(ServerViewModel::class.java)
+//    }
 
 
     private fun getDataRandom(it: Resources<PexelReponse>) {
@@ -124,10 +127,10 @@ class PopularListActivity : AppCompatActivity(), CLickListener {
 
     }
 
-    override fun onClickRandom(photo: Photo) {
+    override fun onClickRandom(photo: Photo, photos: List<Photo>) {
         val intentPopular = Intent(this, ShowFullActivity::class.java)
         intentPopular.putExtra(ShowFullActivity.DATA_DES, photo.alt)
-        intentPopular.putExtra(ShowFullActivity.DATA_IMAGE, photo.src.portrait)
+        intentPopular.putExtra(ShowFullActivity.DATA_IMAGE, PhotoList(photos))
         startActivity(intentPopular)
     }
 

@@ -1,11 +1,11 @@
 package com.androiddev97.wallpaper2021.ui.fragment
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androiddev97.wallpaper2021.R
@@ -63,9 +63,11 @@ class PopularFragment : Fragment(), CLickListener {
 
     }
 
-    override fun onClickRandom(photo: Photo) {
-
+    override fun onClickRandom(photo: Photo, photos: List<Photo>) {
+        TODO("Not yet implemented")
     }
+
+
 
     override fun onClickPopular(popular: Popular) {
         val intentPopular = Intent(requireActivity(), PopularListActivity::class.java)

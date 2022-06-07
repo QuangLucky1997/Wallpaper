@@ -1,14 +1,17 @@
 package com.androiddev97.wallpaper2021.ui.main.viewmodel
 
-import android.app.DownloadManager
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.androiddev97.wallpaper2021.data.repository.SeverRepository
 import com.androiddev97.wallpaper2021.utils.Resources
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-class ServerViewModel(private val severRepository: SeverRepository) : ViewModel() {
+@HiltViewModel
+class ServerViewModel @Inject constructor(private val severRepository: SeverRepository) :
+    ViewModel() {
     fun getPictures(clint_id: String, page: Int, perPage: Int) = liveData(Dispatchers.IO)
     {
         emit(Resources.loading(data = null))

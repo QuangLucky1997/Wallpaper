@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.item_list_popular.view.*
 
 class AdapterPopularList (
     var context: Context,
-    private var onCLickPicture: CLickListener, private val mListPopularPicturesModel: List<Photo>
+    private var onCLickPicture: CLickListener, mListPopularPicturesModel: List<Photo>
 ) : RecyclerView.Adapter<AdapterPopularList.PopularListHolder>() {
     private var itemPicturesPopularList: List<Photo> = mListPopularPicturesModel
 
@@ -47,7 +47,7 @@ class AdapterPopularList (
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(holder.itemView.img_list_popular)
         holder.itemView.img_list_popular.setOnClickListener {
-            onCLickPicture.onClickRandom(imagePopularList)
+            onCLickPicture.onClickRandom(imagePopularList, itemPicturesPopularList )
         }
         holder.itemView.cardViewPopularList.animation=AnimationUtils.loadAnimation(holder.itemView.context, R.anim.translate)
 
