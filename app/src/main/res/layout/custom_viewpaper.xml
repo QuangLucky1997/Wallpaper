@@ -62,6 +62,8 @@
             app:tabIndicatorHeight="@dimen/dp_3"
             app:tabMode="fixed"
             app:tabTextColor="@color/teal_200" />
+
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager

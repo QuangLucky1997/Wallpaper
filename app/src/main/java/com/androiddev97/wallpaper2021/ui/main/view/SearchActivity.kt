@@ -125,5 +125,10 @@ class SearchActivity : AppCompatActivity(), CLickListener {
 
     }
 
+    override fun sendList(respone: PexelReponse) {
+
+
+    }
+
 
 }

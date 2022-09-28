@@ -65,9 +65,9 @@ class PopularListActivity : AppCompatActivity(), CLickListener {
         dataPopular = intent.getSerializableExtra(DATA_POPULAR).toString()
         textViewTitlePopular.text = dataPopular!!
         searchPicturesViewModel.searchPictures(dataPopular!!, 80)
-            .observe(this, { data ->
+            .observe(this) { data ->
                 getDataRandom(data)
-            })
+            }
     }
 
 
@@ -127,11 +127,15 @@ class PopularListActivity : AppCompatActivity(), CLickListener {
     override fun onClickRandom(photo: Photo) {
         val intentPopular = Intent(this, ShowFullActivity::class.java)
         intentPopular.putExtra(ShowFullActivity.DATA_DES, photo.alt)
-        intentPopular.putExtra(ShowFullActivity.DATA_IMAGE, photo.src.portrait)
+        intentPopular.putExtra(ShowFullActivity.DATA_IMAGE, photo.src.large2x)
         startActivity(intentPopular)
     }
 
     override fun onClickPopular(popular: Popular) {
+
+    }
+
+    override fun sendList(respone: PexelReponse) {
 
     }
 }

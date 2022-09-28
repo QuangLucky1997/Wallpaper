@@ -13,6 +13,7 @@ import com.androiddev97.wallpaper2021.`interface`.CLickListener
 import com.androiddev97.wallpaper2021.adapter.AdapterPopular
 import com.androiddev97.wallpaper2021.data.model.firebase.InfoImage
 import com.androiddev97.wallpaper2021.data.model.firebase.WallPaper
+import com.androiddev97.wallpaper2021.data.model.pexel.PexelReponse
 import com.androiddev97.wallpaper2021.data.model.pexel.Photo
 import com.androiddev97.wallpaper2021.data.model.popular.Popular
 import com.androiddev97.wallpaper2021.ui.main.view.PopularListActivity
@@ -71,6 +72,10 @@ class PopularFragment : Fragment(), CLickListener {
         val intentPopular = Intent(requireActivity(), PopularListActivity::class.java)
         intentPopular.putExtra(PopularListActivity.DATA_POPULAR, popular.namePopular)
         startActivity(intentPopular)
+    }
+
+    override fun sendList(respone: PexelReponse) {
+
     }
 
 

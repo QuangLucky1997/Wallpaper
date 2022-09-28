@@ -119,7 +119,10 @@ class RandomPictureFragment : Fragment(), CLickListener {
     }
 
     override fun onClickPopular(popular: Popular) {
-        TODO("Not yet implemented")
+
+    }
+
+    override fun sendList(respone: PexelReponse) {
     }
 
 

@@ -52,8 +52,7 @@ class ShowFullActivity : AppCompatActivity() {
     private fun initData() {
         url = intent.getStringExtra(DATA_IMAGE).toString()
         description = intent.getStringExtra(DATA_DES).toString()
-        Glide.with(applicationContext).load(url)
-            .override(800, 800).diskCacheStrategy(
+        Glide.with(applicationContext).load(url).centerInside().diskCacheStrategy(
                 DiskCacheStrategy.AUTOMATIC
             ).into(img_Walpaper)
         if (description != "null") {

@@ -9,15 +9,15 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 31
+    buildToolsVersion "31.0.3"
 
     defaultConfig {
         applicationId "com.androiddev97.wallpaper2021"
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -39,6 +39,9 @@ android {
 }
 
 dependencies {
+    implementation 'com.github.iammert:AnimatedTabLayout:0.1'
+
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     //LifeCycle
     implementation 'androidx.lifecycle:lifecycle-common:2.3.1'

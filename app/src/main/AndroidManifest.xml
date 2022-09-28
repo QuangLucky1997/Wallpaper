@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wallpaper2021"
         tools:targetApi="q">
+
         <activity
             android:name=".ui.main.view.PopularListActivity"
             android:exported="false" />

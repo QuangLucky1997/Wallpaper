@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
 import com.androiddev97.wallpaper2021.adapter.AdapterRandomPictures
+import com.androiddev97.wallpaper2021.data.model.pexel.PexelReponse
 import com.androiddev97.wallpaper2021.data.model.pexel.Photo
 import com.androiddev97.wallpaper2021.data.model.unplash.ReponseUnplash
 import com.bumptech.glide.Glide
@@ -43,12 +44,12 @@ class SearchAdapter(
 
     override fun onBindViewHolder(holder: SearchHolder, position: Int) {
         val imageRandomList = itemPicturesRandomList[position]
-        Glide.with(context).load(imageRandomList.src.
-        large).override(500,500)
+        Glide.with(context).load(imageRandomList.src.large2x).centerCrop().override(500,500)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(holder.itemView.img_search)
         holder.itemView.img_search.setOnClickListener {
-            onCLickPicture.onClickRandom(imageRandomList)
+           onCLickPicture.onClickRandom(imageRandomList)
+
         }
         holder.itemView.cardViewSearch.animation =
             AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rotate)
