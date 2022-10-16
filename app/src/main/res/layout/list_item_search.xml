@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    android:id="@+id/cardViewSearch"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/dp_150"
-    android:layout_height="@dimen/dp_150">
-    <ImageView
-        android:id="@+id/img_search"
-        android:scaleType="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+<com.makeramen.roundedimageview.RoundedImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/img_search"
+    android:layout_marginStart="@dimen/dp_15"
+    android:layout_marginTop="@dimen/dp_15"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:adjustViewBounds="true"
+    app:riv_corner_radius="@dimen/dp_12">
 
-</androidx.cardview.widget.CardView>
+</com.makeramen.roundedimageview.RoundedImageView>

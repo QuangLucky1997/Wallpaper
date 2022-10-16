@@ -38,8 +38,9 @@
 
                 <ImageView
                     android:id="@+id/searchData"
-                    android:layout_width="@dimen/dp_30"
-                    android:layout_height="@dimen/dp_30"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:padding="@dimen/dp_5"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/dp_5"

@@ -20,5 +20,7 @@ WalliHD</string>
     <string name="set_wallpaper">Set Wallpaper</string>
     <string name="search">Search</string>
     <string name="wallpaper_hd">WallPaper HD</string>
+    <string name="category">CATEGORY</string>
+    <string name="recommend">Recommend</string>
 
 </resources>

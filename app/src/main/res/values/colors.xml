@@ -32,8 +32,29 @@
     <color name="primaryCardBackgroundColorNight">#424242</color>
 
     <color name="green">#68B40F</color>
+
+
+
+
+
+    <item name="blue2" type="color">#FF33B5E5</item>
+    <item name="purple" type="color">#FFAA66CC</item>
+    <item name="red" type="color">#FFFF4444</item>
+    <item name="gray2" type="color">#424242</item>
     <color name="yellow">#CAB604</color>
+    <item name="darkgreen" type="color">#FF669900</item>
+    <item name="darkorange" type="color">#FFFF8800</item>
+    <item name="darkred" type="color">#FFCC0000</item>
 
-
-
+    <integer-array name="androidcolors">
+        <item>@color/blue2</item>
+        <item>@color/purple</item>
+        <item>@color/orange</item>
+        <item>@color/red</item>
+        <item>@color/gray2</item>
+        <item>@color/yellow</item>
+        <item>@color/darkgreen</item>
+        <item>@color/darkorange</item>
+        <item>@color/darkred</item>
+    </integer-array>
 </resources>

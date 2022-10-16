@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+
 import androidx.recyclerview.widget.GridLayoutManager
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
@@ -63,11 +64,11 @@ class CategoryFragment : Fragment(), CLickListener {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun observeData() {
-        viewModelWallPaper.fetchDataFromFireBase().observe(requireActivity(), {
+        viewModelWallPaper.fetchDataFromFireBase().observe(requireActivity()) {
             ProgressBarShow.visibility = View.GONE
             adapterWallPaper.setData(it)
             adapterWallPaper.notifyDataSetChanged()
-        })
+        }
     }
 
     private fun setUpRecycleView() {

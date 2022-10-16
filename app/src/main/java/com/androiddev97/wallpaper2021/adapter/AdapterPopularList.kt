@@ -49,7 +49,7 @@ class AdapterPopularList (
         holder.itemView.img_list_popular.setOnClickListener {
             onCLickPicture.onClickRandom(imagePopularList)
         }
-        holder.itemView.cardViewPopularList.animation=AnimationUtils.loadAnimation(holder.itemView.context, R.anim.translate)
+        holder.itemView.cardViewListPopular.animation=AnimationUtils.loadAnimation(holder.itemView.context, R.anim.translate)
 
 
     }

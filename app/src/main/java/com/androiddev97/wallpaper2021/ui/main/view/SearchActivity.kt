@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
 import com.androiddev97.wallpaper2021.data.api.ApiHelper
@@ -53,9 +54,9 @@ class SearchActivity : AppCompatActivity(), CLickListener {
 
     private fun setUpObserver() {
         searchPicturesViewModel.searchPictures(EditSearch.text.trim().toString(), 80)
-            .observe(this, { data ->
+            .observe(this) { data ->
                 getDataRandom(data)
-            })
+            }
     }
 
     private fun setUpViewModel() {
@@ -95,10 +96,11 @@ class SearchActivity : AppCompatActivity(), CLickListener {
 
     private fun setUpRecyclerView() {
         searchAdapter = SearchAdapter(this, this, arrayListOf())
-        val layoutManager = GridLayoutManager(
-            applicationContext,
-            3
+        val layoutManager = StaggeredGridLayoutManager(
+            2,
+            StaggeredGridLayoutManager.VERTICAL
         )
+        layoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
         recycleViewSearch.layoutManager = layoutManager
         recycleViewSearch.setHasFixedSize(true)
         recycleViewSearch.adapter = searchAdapter

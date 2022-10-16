@@ -54,9 +54,9 @@ class RandomPictureFragment : Fragment(), CLickListener {
 
     private fun setUpObserver() {
         randomPicturesViewModel.getPicturesPexel(1, 80)
-            .observe(requireActivity(), { data ->
+            .observe(requireActivity()) { data ->
                 getDataRandom(data)
-            })
+            }
     }
 
     private fun setUpViewModel() {

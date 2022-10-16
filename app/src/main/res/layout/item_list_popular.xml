@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:id="@+id/cardViewPopularList"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_5">
 
-    <ImageView
-        android:id="@+id/img_list_popular"
-        android:layout_width="@dimen/dp_150"
-        android:layout_height="@dimen/dp_220"
-        android:scaleType="fitXY"
-        android:src="@drawable/winter" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewListPopular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dp_10">
 
-</androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/img_list_popular"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/sports" />
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

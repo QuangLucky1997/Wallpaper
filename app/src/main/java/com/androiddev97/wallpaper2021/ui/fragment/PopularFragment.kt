@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
@@ -20,7 +21,7 @@ import com.androiddev97.wallpaper2021.ui.main.view.PopularListActivity
 import kotlinx.android.synthetic.main.fragment_popular.*
 
 class PopularFragment : Fragment(), CLickListener {
-    private var listPopular: ArrayList<Popular>? = null
+    private var listPopularHeader: ArrayList<Popular>? = null
     private lateinit var adapterPopular: AdapterPopular
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,26 +35,61 @@ class PopularFragment : Fragment(), CLickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         fakeData()
-        adapterPopular = AdapterPopular(requireActivity(), this, listPopular!!)
-        recycle_view_popular.setHasFixedSize(true)
-        recycle_view_popular.layoutManager =
-            LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
-        recycle_view_popular.adapter = adapterPopular
+        setHeaderRv()
+        eventTouchBottom()
 
     }
 
+    private fun eventTouchBottom() {
+        view_item_category_river.setOnClickListener {
+            sendDataBottom("River")
+        }
+        view_item_category_animals.setOnClickListener {
+            sendDataBottom("Animals")
+        }
+        view_item_sports.setOnClickListener {
+            sendDataBottom("Sports")
+        }
+        view_item_category_plane.setOnClickListener {
+            sendDataBottom("Plan")
+        }
+        view_item_neon.setOnClickListener {
+            sendDataBottom("Neon")
+        }
+        view_item_category_city.setOnClickListener {
+            sendDataBottom("City")
+        }
+        view_item_category_winter.setOnClickListener {
+            sendDataBottom("Winter")
+        }
+        view_item_category_quotes.setOnClickListener {
+            sendDataBottom("Quotes")
+        }
+    }
+
+    private fun setHeaderRv() {
+        adapterPopular = AdapterPopular(requireActivity(), this, listPopularHeader!!)
+        rv_header.adapter = adapterPopular
+        rv_header.set3DItem(true)
+        rv_header.setAlpha(true)
+        rv_header.setInfinite(true)
+        rv_header.getCarouselLayoutManager()
+        rv_header.getSelectedPosition()
+
+    }
+
+
     private fun fakeData() {
-        listPopular = ArrayList()
-        listPopular!!.add(Popular(R.drawable.river, "River"))
-        listPopular!!.add(Popular(R.drawable.animal, "Animals"))
-        listPopular!!.add(Popular(R.drawable.neon, "Neon"))
-        listPopular!!.add(Popular(R.drawable.winter, "Winter"))
-        listPopular!!.add(Popular(R.drawable.chamngon, "Quotes"))
-        listPopular!!.add(Popular(R.drawable.sports, "Sports"))
-        listPopular!!.add(Popular(R.drawable.plane, "Plane"))
-        listPopular!!.add(Popular(R.drawable.city, "City"))
-        listPopular!!.add(Popular(R.drawable.game, "Game"))
-        listPopular!!.add(Popular(R.drawable.kt, "Architecture"))
+        listPopularHeader = ArrayList()
+        listPopularHeader!!.add(Popular(R.drawable.bird, "Birds", 80))
+        listPopularHeader!!.add(Popular(R.drawable.boy, "Boys", 90))
+        listPopularHeader!!.add(Popular(R.drawable.girls, "Girls", 67))
+        listPopularHeader!!.add(Popular(R.drawable.moutain, "Mountain", 100))
+        listPopularHeader!!.add(Popular(R.drawable.coin, "Digital currency", 60))
+        listPopularHeader!!.add(Popular(R.drawable.rain, "Rain", 300))
+        listPopularHeader!!.add(Popular(R.drawable.arts, "Arts", 250))
+        listPopularHeader!!.add(Popular(R.drawable.space, "Space", 120))
+        listPopularHeader!!.add(Popular(R.drawable.rose, "Flowers", 567))
     }
 
     override fun onClick(wallPaper: WallPaper) {
@@ -76,6 +112,12 @@ class PopularFragment : Fragment(), CLickListener {
 
     override fun sendList(respone: PexelReponse) {
 
+    }
+
+    private fun sendDataBottom(title: String) {
+        val intentPopularBottom = Intent(requireActivity(), PopularListActivity::class.java)
+        intentPopularBottom.putExtra(PopularListActivity.DATA_POPULAR, title)
+        startActivity(intentPopularBottom)
     }
 
 

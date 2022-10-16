@@ -1,28 +1,27 @@
 package com.androiddev97.wallpaper2021.ui.main.view
 
 
+import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-
+import android.view.MotionEvent
+import android.view.View
+import android.widget.Toast
+import androidx.annotation.StyleRes
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.GravityCompat
-
-import com.androiddev97.wallpaper2021.adapter.ViewPaperWallppAdapter
-import kotlinx.android.synthetic.main.activity_wall_paper.*
-import kotlinx.android.synthetic.main.custom_viewpaper.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.androiddev97.wallpaper2021.R
+import com.androiddev97.wallpaper2021.adapter.ViewPaperWallppAdapter
+import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.activity_wall_paper.*
+import kotlinx.android.synthetic.main.custom_viewpaper.*
 import java.util.*
-import android.widget.Toast
-import android.content.Intent
-import androidx.appcompat.app.AppCompatDelegate
-import com.androiddev97.wallpaper2021.BuildConfig
-import java.lang.Exception
-import androidx.annotation.StyleRes
 
 
 class WallPaperActivity : AppCompatActivity() {
@@ -32,13 +31,25 @@ class WallPaperActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wall_paper)
-
         setSupportActionBar(toolBar)
-        val fragmentAdapter = ViewPaperWallppAdapter(supportFragmentManager)
-        viewPager.adapter = fragmentAdapter
+        tabs.addTab(tabs.newTab().setText("Popular"))
+        tabs.addTab(tabs.newTab().setText("Like"))
+        tabs.addTab(tabs.newTab().setText("Video"))
+        tabs.addTab(tabs.newTab().setText("Random"))
+        tabs.tabGravity = TabLayout.GRAVITY_FILL
         tabs.setSelectedTabIndicatorColor(Color.parseColor("#009dff"))
         tabs.setTabTextColors(Color.parseColor("#393838"), Color.parseColor("#009dff"))
-        tabs.setupWithViewPager(viewPager)
+        val adapter = ViewPaperWallppAdapter(this, supportFragmentManager,
+            tabs.tabCount)
+        viewPager.adapter = adapter
+        viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
+        tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                viewPager.currentItem = tab.position
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
         setUpNavigationDrawer()
 
         val drawerSwitch = nav_view.menu.findItem(R.id.nav_dark_mode).actionView as SwitchCompat
@@ -61,7 +72,7 @@ class WallPaperActivity : AppCompatActivity() {
 
                 }
                 R.id.nav_share -> {
-                    shareApp()
+                   // shareApp()
                 }
                 R.id.nav_dark_mode -> {
 
@@ -72,21 +83,21 @@ class WallPaperActivity : AppCompatActivity() {
         }
     }
 
-    private fun shareApp() {
-        try {
-            val shareIntent = Intent(Intent.ACTION_SEND)
-            shareIntent.type = "text/plain"
-            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "WallpaperHD")
-            var shareMessage = "\nShare App your friends\n\n"
-            shareMessage =
-                """
-              ${shareMessage}https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}
-              """.trimIndent()
-            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
-            startActivity(Intent.createChooser(shareIntent, "choose one"))
-        } catch (e: Exception) {
-        }
-    }
+//    private fun shareApp() {
+//        try {
+//            val shareIntent = Intent(Intent.ACTION_SEND)
+//            shareIntent.type = "text/plain"
+//            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "WallpaperHD")
+//            var shareMessage = "\nShare App your friends\n\n"
+//            shareMessage =
+//                """
+//              ${shareMessage}https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}
+//              """.trimIndent()
+//            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+//            startActivity(Intent.createChooser(shareIntent, "choose one"))
+//        } catch (e: Exception) {
+//        }
+//    }
 
 
     private fun setUpNavigationDrawer() {

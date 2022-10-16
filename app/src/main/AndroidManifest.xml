@@ -32,6 +32,7 @@
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
+            android:exported="true"
             android:name=".ui.main.view.SplashActivity"
             android:configChanges="uiMode"
             android:theme="@style/Theme.Design.Light.NoActionBar">

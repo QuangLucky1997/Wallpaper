@@ -51,7 +51,7 @@ class SearchAdapter(
            onCLickPicture.onClickRandom(imageRandomList)
 
         }
-        holder.itemView.cardViewSearch.animation =
+        holder.itemView.img_search.animation =
             AnimationUtils.loadAnimation(holder.itemView.context, R.anim.rotate)
     }
 }

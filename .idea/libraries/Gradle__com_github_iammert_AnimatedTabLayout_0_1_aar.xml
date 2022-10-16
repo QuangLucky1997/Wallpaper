@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.iammert:AnimatedTabLayout:0.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1af9c42fddcbaf20f844f19a40fe8bd1/jetified-AnimatedTabLayout-0.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1af9c42fddcbaf20f844f19a40fe8bd1/jetified-AnimatedTabLayout-0.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1af9c42fddcbaf20f844f19a40fe8bd1/jetified-AnimatedTabLayout-0.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/11273439d4c67cf77363d6b49900b8d3/transformed/jetified-AnimatedTabLayout-0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/11273439d4c67cf77363d6b49900b8d3/transformed/jetified-AnimatedTabLayout-0.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/11273439d4c67cf77363d6b49900b8d3/transformed/jetified-AnimatedTabLayout-0.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
