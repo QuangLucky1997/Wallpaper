@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.androiddev97.wallpaper2021.ui.fragment.CategoryFragment
 import com.androiddev97.wallpaper2021.ui.fragment.PopularFragment
 import com.androiddev97.wallpaper2021.ui.fragment.RandomPictureFragment
-import com.androiddev97.wallpaper2021.ui.fragment.VideoFragment
 
 internal class ViewPaperWallppAdapter(var context: Context,
                                       fm: FragmentManager,
@@ -20,10 +19,7 @@ internal class ViewPaperWallppAdapter(var context: Context,
             1 -> {
                 CategoryFragment()
             }
-            2 -> {
-                VideoFragment()
-            }
-            3-> {
+            2-> {
                 RandomPictureFragment()
             }
             else -> getItem(position)

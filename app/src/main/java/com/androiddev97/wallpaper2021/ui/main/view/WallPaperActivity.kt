@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.adapter.ViewPaperWallppAdapter
+import com.androiddev97.wallpaper2021.ui.fragment.PopularFragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_wall_paper.*
 import kotlinx.android.synthetic.main.custom_viewpaper.*
@@ -26,7 +27,6 @@ import java.util.*
 
 class WallPaperActivity : AppCompatActivity() {
 
-
     private var actionBarDrawerToggle: ActionBarDrawerToggle? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,6 @@ class WallPaperActivity : AppCompatActivity() {
         setSupportActionBar(toolBar)
         tabs.addTab(tabs.newTab().setText("Popular"))
         tabs.addTab(tabs.newTab().setText("Like"))
-        tabs.addTab(tabs.newTab().setText("Video"))
         tabs.addTab(tabs.newTab().setText("Random"))
         tabs.tabGravity = TabLayout.GRAVITY_FILL
         tabs.setSelectedTabIndicatorColor(Color.parseColor("#009dff"))
@@ -50,6 +49,7 @@ class WallPaperActivity : AppCompatActivity() {
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
+
         setUpNavigationDrawer()
 
         val drawerSwitch = nav_view.menu.findItem(R.id.nav_dark_mode).actionView as SwitchCompat
