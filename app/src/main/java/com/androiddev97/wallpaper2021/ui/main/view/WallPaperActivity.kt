@@ -32,9 +32,9 @@ class WallPaperActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wall_paper)
         setSupportActionBar(toolBar)
-        tabs.addTab(tabs.newTab().setText("Popular"))
-        tabs.addTab(tabs.newTab().setText("Like"))
-        tabs.addTab(tabs.newTab().setText("Random"))
+        tabs.addTab(tabs.newTab().setText("Home"))
+        tabs.addTab(tabs.newTab().setText("Category"))
+        tabs.addTab(tabs.newTab().setText("Premium"))
         tabs.tabGravity = TabLayout.GRAVITY_FILL
         tabs.setSelectedTabIndicatorColor(Color.parseColor("#009dff"))
         tabs.setTabTextColors(Color.parseColor("#393838"), Color.parseColor("#009dff"))

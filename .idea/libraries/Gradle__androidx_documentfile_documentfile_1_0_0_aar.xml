@@ -1,13 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.documentfile:documentfile:1.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7e972acc68569ed7cb59553cc968baf7/documentfile-1.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/049c1f0c9f74cd39b343fc3937587311/transformed/documentfile-1.0.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/049c1f0c9f74cd39b343fc3937587311/transformed/documentfile-1.0.0/jars/classes.jar!/" />
+      <root url="jar://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/transforms-3/049c1f0c9f74cd39b343fc3937587311/transformed/documentfile-1.0.0/jars/classes.jar!/" />
+      <root url="file://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/transforms-3/049c1f0c9f74cd39b343fc3937587311/transformed/documentfile-1.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.documentfile/documentfile/1.0.0/a1bed5cf96db96bd06a2feade98fe55653811dc8/documentfile-1.0.0-sources.jar!/" />
+      <root url="jar://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/modules-2/files-2.1/androidx.documentfile/documentfile/1.0.0/a1bed5cf96db96bd06a2feade98fe55653811dc8/documentfile-1.0.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

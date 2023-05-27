@@ -21,6 +21,7 @@ WalliHD</string>
     <string name="search">Search</string>
     <string name="wallpaper_hd">WallPaper HD</string>
     <string name="category">CATEGORY</string>
-    <string name="recommend">Recommend</string>
+    <string name="feature">Featured</string>
+    <string name="popular_collection">Popular Collection</string>
 
 </resources>

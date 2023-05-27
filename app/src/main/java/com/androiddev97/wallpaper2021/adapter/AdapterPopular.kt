@@ -41,7 +41,6 @@ class AdapterPopular(
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .into(holder.itemView.img_list_popular)
         holder.itemView.textHeaderItem.text = listPopularImage.namePopular
-        holder.itemView.text_count_item.text = listPopularImage.amount.toString()
         val androidColors: IntArray = context.resources.getIntArray(R.array.androidcolors)
         val randomAndroidColor = androidColors[nextInt(androidColors.size)]
         holder.itemView.view_bg_header.setCardBackgroundColor(randomAndroidColor)

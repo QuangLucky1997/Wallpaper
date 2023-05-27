@@ -1,20 +1,14 @@
 <component name="libraryTable">
   <library name="Gradle: com.firebaseui:firebase-ui-database:4.3.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cbfca823abf50189cb66e4ceac4a3e6e/jetified-firebase-ui-database-4.3.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cbfca823abf50189cb66e4ceac4a3e6e/jetified-firebase-ui-database-4.3.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cbfca823abf50189cb66e4ceac4a3e6e/jetified-firebase-ui-database-4.3.2/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/63211d6b1d0ed75e6f3bf53aa3c72f5e/jetified-firebase-ui-database-4.3.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/63211d6b1d0ed75e6f3bf53aa3c72f5e/jetified-firebase-ui-database-4.3.2/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/63211d6b1d0ed75e6f3bf53aa3c72f5e/jetified-firebase-ui-database-4.3.2/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/29119d61e8ab6c6ca79ae118b74a01f7/transformed/jetified-firebase-ui-database-4.3.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/29119d61e8ab6c6ca79ae118b74a01f7/transformed/jetified-firebase-ui-database-4.3.2/AndroidManifest.xml" />
+      <root url="jar://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/transforms-3/29119d61e8ab6c6ca79ae118b74a01f7/transformed/jetified-firebase-ui-database-4.3.2/jars/classes.jar!/" />
+      <root url="file://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/transforms-3/29119d61e8ab6c6ca79ae118b74a01f7/transformed/jetified-firebase-ui-database-4.3.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebaseui/firebase-ui-database/4.3.2/4e3e2b4e511da231be1bc2544422565ac4312513/firebase-ui-database-4.3.2-javadoc.jar!/" />
+      <root url="jar://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/modules-2/files-2.1/com.firebaseui/firebase-ui-database/4.3.2/4e3e2b4e511da231be1bc2544422565ac4312513/firebase-ui-database-4.3.2-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebaseui/firebase-ui-database/4.3.2/1645aac3753f2371393a22455e2f262def9bc4bf/firebase-ui-database-4.3.2-sources.jar!/" />
+      <root url="jar://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/modules-2/files-2.1/com.firebaseui/firebase-ui-database/4.3.2/1645aac3753f2371393a22455e2f262def9bc4bf/firebase-ui-database-4.3.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

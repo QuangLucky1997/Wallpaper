@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.iammert:AnimatedTabLayout:0.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/11273439d4c67cf77363d6b49900b8d3/transformed/jetified-AnimatedTabLayout-0.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/11273439d4c67cf77363d6b49900b8d3/transformed/jetified-AnimatedTabLayout-0.1/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/11273439d4c67cf77363d6b49900b8d3/transformed/jetified-AnimatedTabLayout-0.1/res" />
+      <root url="jar://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/transforms-3/11273439d4c67cf77363d6b49900b8d3/transformed/jetified-AnimatedTabLayout-0.1/jars/classes.jar!/" />
+      <root url="file://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/transforms-3/11273439d4c67cf77363d6b49900b8d3/transformed/jetified-AnimatedTabLayout-0.1/res" />
+      <root url="file://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/transforms-3/11273439d4c67cf77363d6b49900b8d3/transformed/jetified-AnimatedTabLayout-0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.iammert/AnimatedTabLayout/0.1/d2943c0b08b913c3202a599525ea00266cadb737/AnimatedTabLayout-0.1-sources.jar!/" />
+      <root url="jar://E:/AndroidGooglePhotosApi/.gradle/4.6/caches/modules-2/files-2.1/com.github.iammert/AnimatedTabLayout/0.1/d2943c0b08b913c3202a599525ea00266cadb737/AnimatedTabLayout-0.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

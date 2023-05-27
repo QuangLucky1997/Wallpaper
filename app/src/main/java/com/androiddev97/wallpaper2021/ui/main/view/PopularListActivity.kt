@@ -44,7 +44,7 @@ class PopularListActivity : AppCompatActivity(), CLickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_popular_list)
         if (isNetworkAvailable()) {
-            setUpRecyclerView()
+         //   setUpRecyclerView()
             setUpViewModel()
             setUpObserver()
         } else {
@@ -106,16 +106,16 @@ class PopularListActivity : AppCompatActivity(), CLickListener {
     }
 
 
-    private fun setUpRecyclerView() {
-        adapterPopular = AdapterPopularList(this, this, arrayListOf())
-        val layoutManager = GridLayoutManager(
-            applicationContext,
-            3
-        )
-        recycle_view_list_popular.layoutManager = layoutManager
-        recycle_view_list_popular.setHasFixedSize(true)
-        recycle_view_list_popular.adapter = adapterPopular
-    }
+//    private fun setUpRecyclerView() {
+//        adapterPopular = AdapterPopularList(this, this, arrayListOf())
+//        val layoutManager = GridLayoutManager(
+//            applicationContext,
+//            3
+//        )
+//        recycle_view_list_popular.layoutManager = layoutManager
+//        recycle_view_list_popular.setHasFixedSize(true)
+//        recycle_view_list_popular.adapter = adapterPopular
+//    }
 
     override fun onClick(wallPaper: WallPaper) {
     }

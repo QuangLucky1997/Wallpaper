@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.androiddev97.wallpaper2021.R
 import com.androiddev97.wallpaper2021.`interface`.CLickListener
 import com.androiddev97.wallpaper2021.adapter.AdapterPopular
@@ -36,36 +33,9 @@ class PopularFragment : Fragment(), CLickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         fakeData()
         setHeaderRv()
-        eventTouchBottom()
 
     }
 
-    private fun eventTouchBottom() {
-        view_item_category_river.setOnClickListener {
-            sendDataBottom("River")
-        }
-        view_item_category_animals.setOnClickListener {
-            sendDataBottom("Animals")
-        }
-        view_item_sports.setOnClickListener {
-            sendDataBottom("Sports")
-        }
-        view_item_category_plane.setOnClickListener {
-            sendDataBottom("Plan")
-        }
-        view_item_neon.setOnClickListener {
-            sendDataBottom("Neon")
-        }
-        view_item_category_city.setOnClickListener {
-            sendDataBottom("City")
-        }
-        view_item_category_winter.setOnClickListener {
-            sendDataBottom("Winter")
-        }
-        view_item_category_quotes.setOnClickListener {
-            sendDataBottom("Quotes")
-        }
-    }
 
     private fun setHeaderRv() {
         adapterPopular = AdapterPopular(requireActivity(), this, listPopularHeader!!)
@@ -81,15 +51,15 @@ class PopularFragment : Fragment(), CLickListener {
 
     private fun fakeData() {
         listPopularHeader = ArrayList()
-        listPopularHeader!!.add(Popular(R.drawable.bird, "Birds", 80))
-        listPopularHeader!!.add(Popular(R.drawable.boy, "Boys", 90))
-        listPopularHeader!!.add(Popular(R.drawable.girls, "Girls", 67))
-        listPopularHeader!!.add(Popular(R.drawable.moutain, "Mountain", 100))
-        listPopularHeader!!.add(Popular(R.drawable.coin, "Digital currency", 60))
-        listPopularHeader!!.add(Popular(R.drawable.rain, "Rain", 300))
-        listPopularHeader!!.add(Popular(R.drawable.arts, "Arts", 250))
-        listPopularHeader!!.add(Popular(R.drawable.space, "Space", 120))
-        listPopularHeader!!.add(Popular(R.drawable.rose, "Flowers", 567))
+        listPopularHeader!!.add(Popular(R.drawable.bird, "Birds"))
+        listPopularHeader!!.add(Popular(R.drawable.boy, "Boys"))
+        listPopularHeader!!.add(Popular(R.drawable.girls, "Girls"))
+        listPopularHeader!!.add(Popular(R.drawable.moutain, "Mountain"))
+        listPopularHeader!!.add(Popular(R.drawable.coin, "Digital currency"))
+        listPopularHeader!!.add(Popular(R.drawable.rain, "Rain"))
+        listPopularHeader!!.add(Popular(R.drawable.arts, "Arts"))
+        listPopularHeader!!.add(Popular(R.drawable.space, "Space"))
+        listPopularHeader!!.add(Popular(R.drawable.rose, "Flowers"))
     }
 
     override fun onClick(wallPaper: WallPaper) {
